@@ -37,7 +37,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 grid-lines opacity-[0.35] [mask-image:radial-gradient(70%_60%_at_50%_0%,black,transparent)]" />
       <div className="container-page relative">
         <div className="grid items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="space-y-8">
+          <div className="min-w-0 space-y-8">
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-muted px-3 py-1.5 text-xs font-medium text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-success" />
               v1.0 HA stable · deployed on your own hardware
@@ -76,13 +76,15 @@ export function Hero() {
             </dl>
           </div>
 
-          <div className="rounded-2xl border border-border bg-surface p-6 shadow-lift">
+          <div className="min-w-0 rounded-2xl border border-border bg-surface p-6 shadow-lift">
             <div className="flex items-center justify-between border-b border-border pb-4">
               <div className="flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-success" />
                 <span className="text-sm font-semibold">All clusters healthy</span>
               </div>
-              <span className="font-mono text-xs text-muted-foreground">istio-ambient · active</span>
+              <span className="truncate font-mono text-xs text-muted-foreground">
+                istio-ambient · active
+              </span>
             </div>
 
             <div className="divide-y divide-border">
