@@ -3,7 +3,17 @@ import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SectionHeading } from "./primitives";
 
-const tabs = [
+type Tab = {
+  id: string;
+  tab: string;
+  kicker: string;
+  title: string;
+  body: string;
+  points: string[];
+  specs: [string, string][];
+};
+
+const tabs: [Tab, ...Tab[]] = [
   {
     id: "admin",
     tab: "Admin & control",
@@ -61,7 +71,7 @@ const tabs = [
 ];
 
 export function Architecture() {
-  const [active, setActive] = useState(tabs[0].id);
+  const [active, setActive] = useState<string>(tabs[0].id);
   const current = tabs.find((tab) => tab.id === active) ?? tabs[0];
 
   return (
