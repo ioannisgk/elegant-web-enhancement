@@ -82,7 +82,7 @@ export function Hero() {
                 <span className="h-2 w-2 rounded-full bg-success" />
                 <span className="text-sm font-semibold">All clusters healthy</span>
               </div>
-              <span className="truncate font-mono text-xs text-muted-foreground">
+              <span className="hidden truncate font-mono text-xs text-muted-foreground sm:inline">
                 istio-ambient · active
               </span>
             </div>
