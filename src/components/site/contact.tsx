@@ -18,11 +18,11 @@ export function useContact() {
 
 export function ContactProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [topic, setTopic] = useState("Blueprint package");
+  const [topic, setTopic] = useState("Discovery call");
   const [sent, setSent] = useState(false);
 
   const open = (nextTopic?: string) => {
-    setTopic(nextTopic ?? "Blueprint package");
+    setTopic(nextTopic ?? "Discovery call");
     setSent(false);
     setIsOpen(true);
   };

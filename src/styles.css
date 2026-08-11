@@ -189,6 +189,10 @@
     text-wrap: balance;
   }
 
+  button {
+    cursor: pointer;
+  }
+
   ::selection {
     background: var(--brand);
     color: var(--primary-foreground);
