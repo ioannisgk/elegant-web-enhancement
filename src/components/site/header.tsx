@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Anchor, Menu, X } from "lucide-react";
-import { Link, useRouterState } from "@tanstack/react-router";
+import { useRouterState } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { useContact } from "./contact";
 import { PreloaderLink } from "./preloader";
@@ -39,14 +39,14 @@ export function SiteHeader() {
     >
       <div className="container-page">
         <div className="grid h-18 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-4 lg:flex lg:justify-between">
-          <Link to="/" className="flex min-w-0 items-center gap-2.5">
+          <PreloaderLink to="/" className="flex min-w-0 items-center gap-2.5">
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-ink text-ink-foreground">
               <Anchor className="h-4.5 w-4.5" />
             </span>
             <span className="truncate font-display text-lg font-semibold tracking-tight">
               Kube<span className="text-brand">Sailor</span>
             </span>
-          </Link>
+          </PreloaderLink>
 
           <nav className="hidden items-center gap-1 lg:flex">
             {links.map((link) => (

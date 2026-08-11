@@ -1,6 +1,7 @@
 import { ArrowRight, Boxes, GitBranch, ShieldCheck } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { SectionHeading } from "./primitives";
+import { PreloaderLink } from "./preloader";
 
 const pillars = [
   {
@@ -48,12 +49,12 @@ export function PlatformPillars() {
               </span>
               <h3 className="text-lg font-semibold">{pillar.title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{pillar.body}</p>
-              <Link
+              <PreloaderLink
                 to={pillar.to}
                 className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-brand"
               >
                 {pillar.cta} <ArrowRight className="h-4 w-4" />
-              </Link>
+              </PreloaderLink>
             </article>
           ))}
         </div>
