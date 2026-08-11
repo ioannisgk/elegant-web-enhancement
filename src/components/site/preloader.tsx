@@ -107,7 +107,7 @@ export { usePreloader };
 
 // Preloader-aware link for main navigation only.
 // It shows the preloader only when navigating to a different route.
-export function PreloaderLink(props: LinkProps) {
+export function PreloaderLink(props: ComponentPropsWithoutRef<typeof Link>) {
   const { show } = usePreloader();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const { to } = props;
