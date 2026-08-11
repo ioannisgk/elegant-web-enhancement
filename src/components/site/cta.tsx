@@ -29,6 +29,7 @@ export function Cta() {
               </button>
               <PreloaderLink
                 to="/pricing"
+                samePageScrollTo="pricing"
                 className="inline-flex items-center justify-center rounded-xl border border-ink-foreground/20 px-6 py-3.5 text-sm font-semibold transition hover:bg-ink-foreground/5"
               >
                 Review pricing

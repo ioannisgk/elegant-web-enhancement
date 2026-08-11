@@ -29,7 +29,7 @@ export function PreloaderProvider({ children }: { children: ReactNode }) {
   const [navigating, setNavigating] = useState(false);
   const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
   const shownAtRef = useRef(0);
-  const MIN_VISIBLE_MS = 300;
+  const MIN_VISIBLE_MS = 700;
 
   const clearTimers = useCallback(() => {
     timersRef.current.forEach((t) => clearTimeout(t));
@@ -124,7 +124,10 @@ export { usePreloader };
 
 // Preloader-aware link for main navigation only.
 // It shows the preloader only when navigating to a different route.
-export function PreloaderLink(props: ComponentPropsWithoutRef<typeof Link>) {
+export function PreloaderLink({
+  samePageScrollTo,
+  ...props
+}: ComponentPropsWithoutRef<typeof Link> & { samePageScrollTo?: string }) {
   const { show } = usePreloader();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const { to } = props;
@@ -133,9 +136,20 @@ export function PreloaderLink(props: ComponentPropsWithoutRef<typeof Link>) {
     <Link
       {...props}
       onClick={(e) => {
-        // Only trigger the preloader when the destination is a different page
-        if (typeof to === "string" && to !== pathname) {
-          show();
+        if (typeof to === "string") {
+          if (to !== pathname) {
+            show();
+          } else if (samePageScrollTo !== undefined) {
+            // Same page: replay the preloader and scroll to the requested section
+            show();
+            const target = samePageScrollTo
+              ? document.getElementById(samePageScrollTo)
+              : null;
+            window.setTimeout(() => {
+              if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+              else window.scrollTo({ top: 0, behavior: "smooth" });
+            }, 100);
+          }
         }
         props.onClick?.(e);
       }}
