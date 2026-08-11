@@ -128,6 +128,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <ContactProvider>
+        <Preloader />
         <SiteHeader />
         <main>
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
