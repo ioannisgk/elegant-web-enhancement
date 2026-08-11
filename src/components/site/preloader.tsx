@@ -19,6 +19,8 @@ export function PreloaderProvider({ children }: { children: ReactNode }) {
   const [fadeOut, setFadeOut] = useState(false);
   const [navigating, setNavigating] = useState(false);
   const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const shownAtRef = useRef(0);
+  const MIN_VISIBLE_MS = 700;
 
   const clearTimers = useCallback(() => {
     timersRef.current.forEach((t) => clearTimeout(t));
@@ -27,18 +29,24 @@ export function PreloaderProvider({ children }: { children: ReactNode }) {
 
   const show = useCallback(() => {
     clearTimers();
+    shownAtRef.current = Date.now();
     setVisible(true);
     setFadeOut(false);
     setNavigating(true);
   }, [clearTimers]);
 
   const hide = useCallback(() => {
-    setFadeOut(true);
-    const t = setTimeout(() => {
-      setVisible(false);
-      setNavigating(false);
-    }, 500);
-    timersRef.current.push(t);
+    const elapsed = Date.now() - shownAtRef.current;
+    const wait = Math.max(0, MIN_VISIBLE_MS - elapsed);
+    const t0 = setTimeout(() => {
+      setFadeOut(true);
+      const t1 = setTimeout(() => {
+        setVisible(false);
+        setNavigating(false);
+      }, 500);
+      timersRef.current.push(t1);
+    }, wait);
+    timersRef.current.push(t0);
   }, []);
 
   // Initial visit: auto-fade after hydration so the brand moment is visible
