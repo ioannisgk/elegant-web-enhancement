@@ -60,7 +60,7 @@ export function Hero() {
               </ButtonLink>
               <Link to="/delivery">
                 <ButtonLink variant="secondary" className="w-full sm:w-auto">
-                  See the 7-day sequence
+                  See how we deliver
                 </ButtonLink>
               </Link>
             </div>
