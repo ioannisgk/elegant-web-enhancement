@@ -108,7 +108,7 @@ export function Calculator() {
             <div className="space-y-3">
               <button
                 onClick={() => open("Custom TCO audit")}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-surface px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-surface-muted"
+                className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-surface px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-surface-muted"
               >
                 Get a custom TCO audit <ArrowRight className="h-4 w-4" />
               </button>

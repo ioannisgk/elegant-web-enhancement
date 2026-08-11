@@ -18,11 +18,11 @@ export function useContact() {
 
 export function ContactProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [topic, setTopic] = useState("Blueprint package");
+  const [topic, setTopic] = useState("Discovery call");
   const [sent, setSent] = useState(false);
 
   const open = (nextTopic?: string) => {
-    setTopic(nextTopic ?? "Blueprint package");
+    setTopic(nextTopic ?? "Discovery call");
     setSent(false);
     setIsOpen(true);
   };
@@ -81,7 +81,7 @@ export function ContactProvider({ children }: { children: ReactNode }) {
               </div>
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-brand-strong"
+                className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-brand-strong"
               >
                 Send request <ArrowRight className="h-4 w-4" />
               </button>

@@ -42,11 +42,6 @@ export function Hero() {
       <div className="container-page relative">
         <div className="grid items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="min-w-0 space-y-8">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-muted px-3 py-1.5 text-xs font-medium text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-success" />
-              v1.0 HA stable · deployed on your own hardware
-            </span>
-
             <h1 className="text-4xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-5xl lg:text-6xl">
               <span className="text-brand">Your </span>
               private cloud,
@@ -60,7 +55,7 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row">
-              <ButtonLink onClick={() => open("Blueprint package")}>
+              <ButtonLink onClick={() => open("Discovery call")}>
                 Get the blueprint package <ArrowRight className="h-4 w-4" />
               </ButtonLink>
               <Link to="/delivery">

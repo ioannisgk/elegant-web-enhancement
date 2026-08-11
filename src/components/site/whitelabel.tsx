@@ -66,7 +66,7 @@ export function Whitelabel() {
             </p>
             <button
               onClick={() => open("Whitelabel & IP licence")}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-5 py-3 text-sm font-semibold text-ink transition hover:brightness-95"
+              className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-gold px-5 py-3 text-sm font-semibold text-ink transition hover:brightness-95"
             >
               Enquire about the IP licence <ArrowRight className="h-4 w-4" />
             </button>

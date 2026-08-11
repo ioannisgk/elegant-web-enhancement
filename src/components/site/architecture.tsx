@@ -94,7 +94,7 @@ export function Architecture() {
                 key={tab.id}
                 onClick={() => setActive(tab.id)}
                 className={cn(
-                  "rounded-xl px-4 py-2.5 text-sm font-medium transition",
+                  "cursor-pointer rounded-xl px-4 py-2.5 text-sm font-medium transition",
                   tab.id === active
                     ? "bg-ink text-ink-foreground"
                     : "border border-border bg-surface text-muted-foreground hover:text-foreground",

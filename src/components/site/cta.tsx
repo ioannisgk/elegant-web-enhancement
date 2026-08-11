@@ -22,10 +22,10 @@ export function Cta() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
               <button
-                onClick={() => open("Scoping call")}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-surface px-6 py-3.5 text-sm font-semibold text-foreground transition hover:bg-surface-muted"
+                onClick={() => open("Discovery call")}
+                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-surface px-6 py-3.5 text-sm font-semibold text-foreground transition hover:bg-surface-muted"
               >
-                Book a scoping call <ArrowRight className="h-4 w-4" />
+                Book a call <ArrowRight className="h-4 w-4" />
               </button>
               <Link
                 to="/pricing"

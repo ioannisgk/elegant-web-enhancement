@@ -89,7 +89,7 @@ export function ButtonLink({
     <button
       {...props}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand/20",
+        "inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand/20",
         variant === "primary" && "bg-brand text-primary-foreground hover:bg-brand-strong shadow-soft",
         variant === "secondary" &&
           "border border-border bg-surface text-foreground hover:border-foreground/25 hover:bg-surface-muted",

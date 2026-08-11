@@ -68,13 +68,13 @@ export function SiteFooter() {
               Start a project
             </h3>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Scoping calls are run by the engineers who deliver the build.
+              Discovery calls are run by the engineers who deliver the build.
             </p>
             <button
-              onClick={() => open("Scoping call")}
-              className="w-full rounded-xl bg-ink px-4 py-3 text-sm font-semibold text-ink-foreground transition hover:bg-ink/90"
+              onClick={() => open("Discovery call")}
+              className="w-full cursor-pointer rounded-xl bg-ink px-4 py-3 text-sm font-semibold text-ink-foreground transition hover:bg-ink/90"
             >
-              Book a scoping call
+              Book a call
             </button>
           </div>
         </div>

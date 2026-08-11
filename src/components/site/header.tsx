@@ -62,17 +62,17 @@ export function SiteHeader() {
 
           <div className="hidden lg:block">
             <button
-              onClick={() => open("Blueprint package")}
-              className="rounded-xl bg-ink px-4 py-2.5 text-sm font-semibold text-ink-foreground transition hover:bg-ink/90"
+              onClick={() => open("Discovery call")}
+              className="cursor-pointer rounded-xl bg-ink px-4 py-2.5 text-sm font-semibold text-ink-foreground transition hover:bg-ink/90"
             >
-              Book a scoping call
+              Book a call
             </button>
           </div>
 
           <button
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle navigation"
-            className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-border bg-surface lg:hidden"
+            className="grid h-10 w-10 shrink-0 cursor-pointer place-items-center rounded-xl border border-border bg-surface lg:hidden"
           >
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -97,11 +97,11 @@ export function SiteHeader() {
           <button
             onClick={() => {
               setMenuOpen(false);
-              open("Blueprint package");
+              open("Discovery call");
             }}
-            className="mt-5 w-full rounded-xl bg-ink px-4 py-3 text-sm font-semibold text-ink-foreground"
+            className="mt-5 w-full cursor-pointer rounded-xl bg-ink px-4 py-3 text-sm font-semibold text-ink-foreground"
           >
-            Book a scoping call
+            Book a call
           </button>
         </div>
       ) : null}
