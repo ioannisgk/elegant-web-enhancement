@@ -101,6 +101,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
+    scripts: [
+      {
+        type: "text/javascript",
+        children: `
+          if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+          }
+          window.scrollTo(0, 0);
+        `,
+      },
+    ],
+
   }),
   shellComponent: RootShell,
   component: RootComponent,
