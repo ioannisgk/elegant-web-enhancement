@@ -49,8 +49,9 @@ export function Hero() {
             </h1>
 
             <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
-              KubeSailor is a multi-cluster private cloud platform — based on Ubuntu, Istio Ambient mesh, Rook-Ceph
-              storage and full GitOps automation — engineered, deployed and handed over by senior Kubernetes architects.
+              KubeSailor is a multi-cluster private cloud platform — based on Ubuntu, Kubernetes, Istio Ambient mesh,
+              Rook-Ceph storage and full GitOps automation — engineered, deployed and handed over by senior Kubernetes
+              architects.
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row">
