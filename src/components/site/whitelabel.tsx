@@ -62,11 +62,11 @@ export function Whitelabel() {
             <p className="text-lg font-medium leading-relaxed">
               In short: whitelabel turns KubeSailor from{" "}
               <span className="text-ink-foreground/60">"a platform we bought"</span> into{" "}
-              <span className="text-gold">"a product line we run"</span>.
+              <span className="text-[oklch(0.75_0.10_80)]">"a product line we run"</span>.
             </p>
             <button
               onClick={() => open("Whitelabel & IP licence")}
-              className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-gold px-5 py-3 text-sm font-semibold text-ink transition hover:brightness-95"
+              className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[oklch(0.75_0.10_80)] px-5 py-3 text-sm font-semibold text-ink transition hover:brightness-95"
             >
               Enquire about the IP licence <ArrowRight className="h-4 w-4" />
             </button>
