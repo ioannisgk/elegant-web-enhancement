@@ -1,6 +1,38 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
+export function PageHero({
+  eyebrow,
+  title,
+  description,
+  meta,
+}: {
+  eyebrow: string;
+  title: ReactNode;
+  description: string;
+  meta?: string[];
+}) {
+  return (
+    <section className="relative overflow-hidden border-b border-border bg-surface pt-32 pb-16 lg:pt-40 lg:pb-20">
+      <div className="pointer-events-none absolute inset-0 grid-lines opacity-[0.3] [mask-image:radial-gradient(70%_60%_at_50%_0%,black,transparent)]" />
+      <div className="container-page relative max-w-4xl space-y-6">
+        <Eyebrow>{eyebrow}</Eyebrow>
+        <h1 className="text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl">
+          {title}
+        </h1>
+        <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">{description}</p>
+        {meta?.length ? (
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 border-t border-border pt-6 font-mono text-xs text-muted-foreground">
+            {meta.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+    </section>
+  );
+}
+
 export function Eyebrow({ children, tone = "brand" }: { children: ReactNode; tone?: "brand" | "gold" }) {
   return (
     <span

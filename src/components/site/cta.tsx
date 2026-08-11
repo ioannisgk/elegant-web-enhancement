@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { useContact } from "./contact";
 
 export function Cta() {
@@ -26,12 +27,12 @@ export function Cta() {
               >
                 Book a scoping call <ArrowRight className="h-4 w-4" />
               </button>
-              <a
-                href="#pricing"
+              <Link
+                to="/pricing"
                 className="inline-flex items-center justify-center rounded-xl border border-ink-foreground/20 px-6 py-3.5 text-sm font-semibold transition hover:bg-ink-foreground/5"
               >
                 Review pricing
-              </a>
+              </Link>
             </div>
           </div>
         </div>

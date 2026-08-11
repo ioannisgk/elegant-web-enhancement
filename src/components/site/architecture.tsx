@@ -78,10 +78,10 @@ export function Architecture() {
     <section id="architecture" className="section-y border-b border-border bg-background">
       <div className="container-page space-y-14">
         <SectionHeading
-          eyebrow="Reference architecture"
+          eyebrow="Cluster topology"
           title={
             <>
-              Three clusters, one <span className="text-brand">coherent platform</span>
+              Inside each <span className="text-brand">cluster</span>
             </>
           }
           description="Control, compute and storage are separated by design — so governance, workloads and data each fail, scale and upgrade independently."

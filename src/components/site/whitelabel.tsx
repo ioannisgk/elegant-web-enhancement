@@ -37,11 +37,11 @@ export function Whitelabel() {
     <section id="whitelabel" className="section-y border-b border-border bg-background">
       <div className="container-page space-y-14">
         <SectionHeading
-          tone="gold"
-          eyebrow="Whitelabel & IP"
+        tone="gold"
+          eyebrow="What you receive"
           title={
             <>
-              Own the platform and <span className="text-gold">build a business on it</span>
+              Five ways the licence <span className="text-gold">pays for itself</span>
             </>
           }
           description="The whitelabel tier isn't a bigger deployment — it's a different purchase. Instead of KubeSailor being built once for your infrastructure, you receive the complete source and the knowledge to run it yourself, indefinitely, for as many clients as you choose."
