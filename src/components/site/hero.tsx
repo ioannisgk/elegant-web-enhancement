@@ -49,7 +49,7 @@ export function Hero() {
             </h1>
 
             <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
-              KubeSailor is a multi-cluster private cloud platform — Ubuntu 24.04 LTS, Istio Ambient mesh, Rook-Ceph
+              KubeSailor is a multi-cluster private cloud platform — based on Ubuntu, Istio Ambient mesh, Rook-Ceph
               storage and full GitOps automation — engineered, deployed and handed over by senior Kubernetes architects.
             </p>
 
