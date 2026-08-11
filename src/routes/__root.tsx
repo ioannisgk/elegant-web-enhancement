@@ -109,9 +109,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             history.scrollRestoration = 'manual';
           }
           window.scrollTo(0, 0);
+          // Strip any ?_r=<timestamp> helper used to force a top-aligned reload.
+          if (location.search.indexOf('_r=') !== -1) {
+            history.replaceState(null, '', location.pathname + location.hash);
+          }
         `,
       },
     ],
+
 
   }),
   shellComponent: RootShell,
