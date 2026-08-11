@@ -36,7 +36,6 @@
   --color-brand: var(--brand);
   --color-brand-soft: var(--brand-soft);
   --color-brand-strong: var(--brand-strong);
-  --color-brand-foreground: var(--brand-foreground);
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
   --color-success: var(--success);
@@ -75,17 +74,6 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-
-  --animate-page-progress: page-progress 1.2s ease-in-out infinite;
-}
-
-@keyframes page-progress {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
 }
 
 :root {
@@ -99,7 +87,6 @@
   --brand: oklch(0.53 0.135 250);
   --brand-strong: oklch(0.45 0.135 252);
   --brand-soft: oklch(0.955 0.02 245);
-  --brand-foreground: oklch(0.97 0.005 250);
   --gold: oklch(0.62 0.12 75);
   --gold-soft: oklch(0.96 0.03 85);
   --success: oklch(0.55 0.12 155);

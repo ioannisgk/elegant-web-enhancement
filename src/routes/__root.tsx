@@ -7,7 +7,6 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { ContactProvider } from "@/components/site/contact";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
-import { PageTransition } from "@/components/site/page-transition";
 
 function NotFoundComponent() {
   return (
@@ -131,9 +130,7 @@ function RootComponent() {
         <SiteHeader />
         <main>
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-          <PageTransition>
-            <Outlet />
-          </PageTransition>
+          <Outlet />
         </main>
         <SiteFooter />
       </ContactProvider>
