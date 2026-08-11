@@ -7,7 +7,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { ContactProvider } from "@/components/site/contact";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
-import { Preloader } from "@/components/site/preloader";
+import { PreloaderProvider } from "@/components/site/preloader";
 
 function NotFoundComponent() {
   return (
@@ -128,13 +128,14 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <ContactProvider>
-        <Preloader />
-        <SiteHeader />
-        <main>
-          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-          <Outlet />
-        </main>
-        <SiteFooter />
+        <PreloaderProvider>
+          <SiteHeader />
+          <main>
+            {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+            <Outlet />
+          </main>
+          <SiteFooter />
+        </PreloaderProvider>
       </ContactProvider>
     </QueryClientProvider>
   );

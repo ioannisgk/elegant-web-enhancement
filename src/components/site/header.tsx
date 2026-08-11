@@ -3,6 +3,7 @@ import { Anchor, Menu, X } from "lucide-react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { useContact } from "./contact";
+import { PreloaderLink } from "./preloader";
 
 const links = [
   { to: "/architecture", label: "Architecture" },
@@ -49,14 +50,14 @@ export function SiteHeader() {
 
           <nav className="hidden items-center gap-1 lg:flex">
             {links.map((link) => (
-              <Link
+              <PreloaderLink
                 key={link.to}
                 to={link.to}
                 activeProps={{ className: "bg-surface-muted text-foreground" }}
                 className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-surface-muted hover:text-foreground"
               >
                 {link.label}
-              </Link>
+              </PreloaderLink>
             ))}
           </nav>
 
@@ -83,7 +84,7 @@ export function SiteHeader() {
         <div className="border-t border-border bg-surface px-5 pb-6 pt-3 lg:hidden">
           <nav className="flex flex-col">
             {links.map((link) => (
-              <Link
+              <PreloaderLink
                 key={link.to}
                 to={link.to}
                 onClick={() => setMenuOpen(false)}
@@ -91,7 +92,7 @@ export function SiteHeader() {
                 className="border-b border-border/60 py-3 text-sm font-medium text-muted-foreground"
               >
                 {link.label}
-              </Link>
+              </PreloaderLink>
             ))}
           </nav>
           <button
