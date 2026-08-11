@@ -34,7 +34,10 @@ export function Hero() {
   const { open } = useContact();
 
   return (
-    <section id="top" className="relative overflow-hidden border-b border-border bg-surface pt-32 pb-20 lg:pt-40 lg:pb-28">
+    <section
+      id="top"
+      className="relative overflow-hidden border-b border-border bg-surface pt-32 pb-20 lg:pt-40 lg:pb-28"
+    >
       <div className="pointer-events-none absolute inset-0 grid-lines opacity-[0.35] [mask-image:radial-gradient(70%_60%_at_50%_0%,black,transparent)]" />
       <div className="container-page relative">
         <div className="grid items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
@@ -45,15 +48,15 @@ export function Hero() {
             </span>
 
             <h1 className="text-4xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-5xl lg:text-6xl">
-              A multi-cluster private cloud,
-              <br className="hidden sm:block" /> delivered in{" "}
-              <span className="text-brand">one week</span>.
+              <span className="text-brand">Your</span>
+              private cloud,
+              <br className="hidden sm:block" /> delivered in <span className="text-brand">one week</span>.
             </h1>
 
             <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
-              KubeSailor is a productized three-cluster bare metal platform — Ubuntu 24.04 LTS,
-              Istio Ambient mesh, Rook-Ceph storage and full GitOps automation — engineered,
-              deployed and handed over by senior Kubernetes architects.
+              KubeSailor is a productized three-cluster bare metal platform — Ubuntu 24.04 LTS, Istio Ambient mesh,
+              Rook-Ceph storage and full GitOps automation — engineered, deployed and handed over by senior Kubernetes
+              architects.
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row">
@@ -106,14 +109,12 @@ export function Hero() {
             </div>
 
             <div className="mt-2 grid gap-2 border-t border-border pt-4 text-sm text-muted-foreground">
-              {["No egress billing", "No control plane fees", "Full source of every manifest"].map(
-                (item) => (
-                  <p key={item} className="flex items-center gap-2">
-                    <Check className="h-4 w-4 shrink-0 text-success" />
-                    {item}
-                  </p>
-                ),
-              )}
+              {["No egress billing", "No control plane fees", "Full source of every manifest"].map((item) => (
+                <p key={item} className="flex items-center gap-2">
+                  <Check className="h-4 w-4 shrink-0 text-success" />
+                  {item}
+                </p>
+              ))}
             </div>
           </div>
         </div>
