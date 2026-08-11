@@ -50,7 +50,8 @@ export function Hero() {
 
             <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
               KubeSailor is a multi-cluster private cloud platform — based on Kubernetes, Istio Ambient mesh, Rook-Ceph
-              storage and full GitOps automation — engineered, deployed and handed over by senior Kubernetes architects.
+              storage, Prometheus, Grafana, Tempo for monitoring and full GitOps automation — engineered, deployed and
+              handed over by senior Kubernetes architects.
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row">
