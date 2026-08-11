@@ -22,3 +22,39 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## Deploying to GitHub Pages
+
+The site is fully static — every route is prerendered to HTML, so it can be
+hosted on GitHub Pages with no server.
+
+```bash
+bun run build:pages   # output in dist/client
+```
+
+This produces prerendered HTML for `/`, `/architecture`, `/delivery`,
+`/pricing`, `/whitelabel` and `/faq`, plus `.nojekyll` and a `404.html`
+fallback for deep links.
+
+### One-time repository setup
+
+1. Push this repository to GitHub (default branch `main`).
+2. In **Settings → Pages**, set **Source** to **GitHub Actions**.
+3. `.github/workflows/deploy.yml` then builds and deploys on every push to
+   `main` (and on manual dispatch).
+
+### Custom domain
+
+`public/CNAME` contains `kubesailor.com`, which is copied into the build, so the
+site serves from the domain root. At your DNS provider point the apex domain at
+GitHub Pages:
+
+```
+A     @     185.199.108.153
+A     @     185.199.109.153
+A     @     185.199.110.153
+A     @     185.199.111.153
+CNAME www   <your-github-username>.github.io.
+```
+
+Then enable **Enforce HTTPS** in Settings → Pages once the certificate is issued.
