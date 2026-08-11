@@ -87,8 +87,8 @@
   --brand: oklch(0.53 0.135 250);
   --brand-strong: oklch(0.45 0.135 252);
   --brand-soft: oklch(0.955 0.02 245);
-  --gold: oklch(0.52 0.08 55);
-  --gold-soft: oklch(0.94 0.025 60);
+  --gold: oklch(0.75 0.10 80);
+  --gold-soft: oklch(0.96 0.03 85);
   --success: oklch(0.55 0.12 155);
   --success-soft: oklch(0.96 0.03 160);
   --danger: oklch(0.55 0.18 20);
