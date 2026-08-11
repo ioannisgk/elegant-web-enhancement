@@ -1,9 +1,20 @@
 import { ArrowRight } from "lucide-react";
 import { useContact } from "./contact";
 import { PreloaderLink } from "./preloader";
+import { useLocation } from "@tanstack/react-router";
 
 export function Cta() {
   const { open } = useContact();
+  const { pathname } = useLocation();
+  const isPricingPage = pathname === "/pricing";
+
+  const handleReloadPricing = () => {
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
+    window.location.reload();
+  };
 
   return (
     <section className="section-y bg-background">
@@ -27,12 +38,21 @@ export function Cta() {
               >
                 Book a call <ArrowRight className="h-4 w-4" />
               </button>
-              <PreloaderLink
-                to="/pricing"
-                className="inline-flex items-center justify-center rounded-xl border border-ink-foreground/20 px-6 py-3.5 text-sm font-semibold transition hover:bg-ink-foreground/5"
-              >
-                Review pricing
-              </PreloaderLink>
+              {isPricingPage ? (
+                <button
+                  onClick={handleReloadPricing}
+                  className="inline-flex cursor-pointer items-center justify-center rounded-xl border border-ink-foreground/20 px-6 py-3.5 text-sm font-semibold transition hover:bg-ink-foreground/5"
+                >
+                  Review pricing
+                </button>
+              ) : (
+                <PreloaderLink
+                  to="/pricing"
+                  className="inline-flex items-center justify-center rounded-xl border border-ink-foreground/20 px-6 py-3.5 text-sm font-semibold transition hover:bg-ink-foreground/5"
+                >
+                  Review pricing
+                </PreloaderLink>
+              )}
             </div>
           </div>
         </div>
