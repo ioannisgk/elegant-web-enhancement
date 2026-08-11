@@ -7,7 +7,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 const isPagesBuild = process.env["BUILD_TARGET"] === "pages";
 
 export default defineConfig({
-  nitro: isPagesBuild ? false : undefined,
+  ...(isPagesBuild ? { nitro: false as const } : {}),
   tanstackStart: {
     server: { entry: "server" },
     prerender: {
