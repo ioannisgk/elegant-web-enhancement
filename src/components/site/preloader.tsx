@@ -20,7 +20,7 @@ export function PreloaderProvider({ children }: { children: ReactNode }) {
   const [navigating, setNavigating] = useState(false);
   const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
   const shownAtRef = useRef(0);
-  const MIN_VISIBLE_MS = 700;
+  const MIN_VISIBLE_MS = 350;
 
   const clearTimers = useCallback(() => {
     timersRef.current.forEach((t) => clearTimeout(t));
