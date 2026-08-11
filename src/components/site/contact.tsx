@@ -81,7 +81,7 @@ export function ContactProvider({ children }: { children: ReactNode }) {
               </div>
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-brand-strong"
+                className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-brand-strong"
               >
                 Send request <ArrowRight className="h-4 w-4" />
               </button>
