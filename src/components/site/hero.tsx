@@ -56,7 +56,7 @@ export function Hero() {
 
             <div className="flex flex-col gap-3 sm:flex-row">
               <ButtonLink onClick={() => open("Discovery call")}>
-                Get the blueprint package <ArrowRight className="h-4 w-4" />
+                Get your private cloud <ArrowRight className="h-4 w-4" />
               </ButtonLink>
               <Link to="/delivery">
                 <ButtonLink variant="secondary" className="w-full sm:w-auto">
