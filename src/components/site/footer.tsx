@@ -38,8 +38,8 @@ export function SiteFooter() {
               </span>
             </div>
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-              A productized multi-cluster private cloud platform for teams building on bare metal,
-              with full data sovereignty and high availability by default.
+              A multi-cluster private cloud platform for teams building on bare metal, with full data sovereignty and
+              high availability by default.
             </p>
           </div>
 
@@ -51,10 +51,7 @@ export function SiteFooter() {
               <ul className="space-y-2.5 text-sm">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      to={link.to}
-                      className="text-muted-foreground transition hover:text-foreground"
-                    >
+                    <Link to={link.to} className="text-muted-foreground transition hover:text-foreground">
                       {link.label}
                     </Link>
                   </li>
