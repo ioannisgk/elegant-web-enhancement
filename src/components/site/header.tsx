@@ -3,6 +3,7 @@ import { Anchor, Menu, X } from "lucide-react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { useContact } from "./contact";
+import { PreloaderLink } from "./preloader";
 
 const links = [
   { to: "/architecture", label: "Architecture" },
