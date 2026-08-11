@@ -1,6 +1,6 @@
-import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode, type ComponentPropsWithoutRef } from "react";
 import { Anchor } from "lucide-react";
-import { useRouterState, Link, type LinkProps } from "@tanstack/react-router";
+import { useRouterState, Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 
 const PreloaderContext = createContext<{
