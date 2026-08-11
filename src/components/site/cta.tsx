@@ -9,12 +9,12 @@ export function Cta() {
   const isPricingPage = pathname === "/pricing";
 
   const handleReloadPricing = () => {
-    if ("scrollRestoration" in history) {
-      history.scrollRestoration = "manual";
-    }
-    window.scrollTo(0, 0);
-    window.location.reload();
+    // Force a full page reload while guaranteeing we start at the top.
+    // A same-URL reload can restore the previous scroll position, so we
+    // navigate to a unique query-string variant and strip it on arrival.
+    window.location.replace(`/pricing?_r=${Date.now()}`);
   };
+
 
   return (
     <section className="section-y bg-background">
