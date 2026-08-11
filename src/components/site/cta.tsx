@@ -1,9 +1,18 @@
 import { ArrowRight } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { useRouterState } from "@tanstack/react-router";
 import { useContact } from "./contact";
+import { PreloaderLink } from "./preloader";
 
 export function Cta() {
   const { open } = useContact();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isPricingPage = pathname === "/pricing";
+
+  const scrollToPricing = () => {
+    const target = document.getElementById("pricing");
+    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    else window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <section className="section-y bg-background">
@@ -27,12 +36,22 @@ export function Cta() {
               >
                 Book a call <ArrowRight className="h-4 w-4" />
               </button>
-              <Link
-                to="/pricing"
-                className="inline-flex items-center justify-center rounded-xl border border-ink-foreground/20 px-6 py-3.5 text-sm font-semibold transition hover:bg-ink-foreground/5"
-              >
-                Review pricing
-              </Link>
+              {isPricingPage ? (
+                <button
+                  onClick={scrollToPricing}
+                  className="inline-flex cursor-pointer items-center justify-center rounded-xl border border-ink-foreground/20 px-6 py-3.5 text-sm font-semibold transition hover:bg-ink-foreground/5"
+                >
+                  Review pricing
+                </button>
+              ) : (
+                <PreloaderLink
+                  to="/pricing"
+                  samePageScrollTo="pricing"
+                  className="inline-flex items-center justify-center rounded-xl border border-ink-foreground/20 px-6 py-3.5 text-sm font-semibold transition hover:bg-ink-foreground/5"
+                >
+                  Review pricing
+                </PreloaderLink>
+              )}
             </div>
           </div>
         </div>
