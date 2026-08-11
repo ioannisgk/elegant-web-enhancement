@@ -178,6 +178,13 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
+    scrollbar-gutter: stable;
+  }
+
+  /* Prevent layout shift (incl. the fixed header) when a dialog locks scroll */
+  body[data-scroll-locked] {
+    padding-right: 0 !important;
+    margin-right: 0 !important;
   }
 
   h1,
