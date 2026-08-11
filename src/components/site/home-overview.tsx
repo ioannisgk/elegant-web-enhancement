@@ -109,12 +109,12 @@ export function DeliveryStrip() {
             </div>
           ))}
           <div className="bg-surface p-7">
-            <Link
+            <PreloaderLink
               to="/delivery"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand"
             >
               See the day-by-day plan <ArrowRight className="h-4 w-4" />
-            </Link>
+            </PreloaderLink>
           </div>
         </div>
       </div>
@@ -141,12 +141,12 @@ export function PricingTeaser() {
         ))}
       </div>
       <div className="container-page mt-8 text-center">
-        <Link
+        <PreloaderLink
           to="/pricing"
           className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand"
         >
           Compare tiers and model your TCO <ArrowRight className="h-4 w-4" />
-        </Link>
+        </PreloaderLink>
       </div>
     </section>
   );
