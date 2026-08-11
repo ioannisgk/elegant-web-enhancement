@@ -1,4 +1,13 @@
-import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode, type ComponentPropsWithoutRef } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+  type ComponentPropsWithoutRef,
+} from "react";
 import { Anchor } from "lucide-react";
 import { useRouterState, Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
@@ -20,7 +29,7 @@ export function PreloaderProvider({ children }: { children: ReactNode }) {
   const [navigating, setNavigating] = useState(false);
   const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
   const shownAtRef = useRef(0);
-  const MIN_VISIBLE_MS = 350;
+  const MIN_VISIBLE_MS = 300;
 
   const clearTimers = useCallback(() => {
     timersRef.current.forEach((t) => clearTimeout(t));
