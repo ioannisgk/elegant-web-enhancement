@@ -1,22 +1,26 @@
 import { useEffect, useState } from "react";
 import { Anchor, Menu, X } from "lucide-react";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { useContact } from "./contact";
 
 const links = [
-  { href: "#architecture", label: "Architecture" },
-  { href: "#blueprint", label: "Delivery" },
-  { href: "#stack", label: "Stack" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#whitelabel", label: "Whitelabel" },
-  { href: "#calculator", label: "TCO" },
-  { href: "#faq", label: "FAQ" },
-];
+  { to: "/architecture", label: "Architecture" },
+  { to: "/delivery", label: "Delivery" },
+  { to: "/pricing", label: "Pricing" },
+  { to: "/whitelabel", label: "Whitelabel" },
+  { to: "/faq", label: "FAQ" },
+] as const;
 
 export function SiteHeader() {
   const { open } = useContact();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -34,24 +38,25 @@ export function SiteHeader() {
     >
       <div className="container-page">
         <div className="grid h-18 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-4 lg:flex lg:justify-between">
-          <a href="#top" className="flex min-w-0 items-center gap-2.5">
+          <Link to="/" className="flex min-w-0 items-center gap-2.5">
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-ink text-ink-foreground">
               <Anchor className="h-4.5 w-4.5" />
             </span>
             <span className="truncate font-display text-lg font-semibold tracking-tight">
               Kube<span className="text-brand">Sailor</span>
             </span>
-          </a>
+          </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
             {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
+              <Link
+                key={link.to}
+                to={link.to}
+                activeProps={{ className: "bg-surface-muted text-foreground" }}
                 className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-surface-muted hover:text-foreground"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -78,14 +83,15 @@ export function SiteHeader() {
         <div className="border-t border-border bg-surface px-5 pb-6 pt-3 lg:hidden">
           <nav className="flex flex-col">
             {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
+              <Link
+                key={link.to}
+                to={link.to}
                 onClick={() => setMenuOpen(false)}
+                activeProps={{ className: "text-foreground" }}
                 className="border-b border-border/60 py-3 text-sm font-medium text-muted-foreground"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
           <button

@@ -1,4 +1,5 @@
 import { ArrowRight, Check, ShieldCheck, Server, HardDrive } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { ButtonLink } from "./primitives";
 import { useContact } from "./contact";
 
@@ -59,11 +60,11 @@ export function Hero() {
               <ButtonLink onClick={() => open("Blueprint package")}>
                 Get the blueprint package <ArrowRight className="h-4 w-4" />
               </ButtonLink>
-              <a href="#blueprint">
+              <Link to="/delivery">
                 <ButtonLink variant="secondary" className="w-full sm:w-auto">
                   See the 7-day sequence
                 </ButtonLink>
-              </a>
+              </Link>
             </div>
 
             <dl className="grid gap-6 border-t border-border pt-8 sm:grid-cols-3">

@@ -1,26 +1,25 @@
 import { Anchor } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { useContact } from "./contact";
 
 const columns = [
   {
     title: "Platform",
     links: [
-      { label: "Architecture", href: "#architecture" },
-      { label: "Delivery timeline", href: "#blueprint" },
-      { label: "Technology stack", href: "#stack" },
-      { label: "Comparison", href: "#comparison" },
+      { label: "Reference architecture", to: "/architecture" },
+      { label: "Delivery & operations", to: "/delivery" },
+      { label: "Home", to: "/" },
     ],
   },
   {
     title: "Commercial",
     links: [
-      { label: "Pricing tiers", href: "#pricing" },
-      { label: "Whitelabel & IP", href: "#whitelabel" },
-      { label: "TCO calculator", href: "#calculator" },
-      { label: "FAQ", href: "#faq" },
+      { label: "Pricing & TCO", to: "/pricing" },
+      { label: "Whitelabel & IP", to: "/whitelabel" },
+      { label: "FAQ", to: "/faq" },
     ],
   },
-];
+] as const;
 
 export function SiteFooter() {
   const { open } = useContact();
@@ -52,9 +51,12 @@ export function SiteFooter() {
               <ul className="space-y-2.5 text-sm">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="text-muted-foreground transition hover:text-foreground">
+                    <Link
+                      to={link.to}
+                      className="text-muted-foreground transition hover:text-foreground"
+                    >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

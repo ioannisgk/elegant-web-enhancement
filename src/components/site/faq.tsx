@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "What hardware do we need before day one?",
-    a: "A minimum of nine to twelve nodes: three control, four compute and three storage servers with datacenter NVMe drives, static addressing and out-of-band access. We review your inventory during scoping and confirm the topology before the engagement starts.",
+    a: "A minimum of 19 nodes — load balancer and DNS pairs, three HA clusters (admin, workload, storage) and a dedicated GitLab server — running Ubuntu 24.04 LTS with datacenter NVMe drives, static addressing and out-of-band access. 25 nodes is the recommended footprint. We review your inventory during scoping and confirm the topology before the engagement starts.",
   },
   {
     q: "What happens after handover?",
@@ -35,8 +35,8 @@ export function Faq() {
       <div className="container-page grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
         <SectionHeading
           align="left"
-          eyebrow="FAQ"
-          title="Questions we get before scoping"
+          eyebrow="Common questions"
+          title="What teams ask us first"
           description="If something isn't covered here, a senior engineer will answer it directly on the call."
         />
 
