@@ -39,7 +39,7 @@ export function SiteHeader() {
     >
       <div className="container-page">
         <div className="grid h-18 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-4 lg:flex lg:justify-between">
-          <PreloaderLink to="/" className="flex min-w-0 items-center gap-2.5">
+          <PreloaderLink to="/" samePageScrollTo="" className="flex min-w-0 items-center gap-2.5">
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-ink text-ink-foreground">
               <Anchor className="h-4.5 w-4.5" />
             </span>
