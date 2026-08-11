@@ -117,7 +117,7 @@ export function Pricing() {
               <button
                 onClick={() => open(tier.name)}
                 className={cn(
-                  "mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition",
+                  "mt-8 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition",
                   tier.featured
                     ? "bg-brand text-primary-foreground hover:bg-brand-strong"
                     : "border border-border bg-surface hover:bg-surface-muted",
