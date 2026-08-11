@@ -13,6 +13,5 @@ export default defineConfig({
     prerender: {
       enabled: isPagesBuild,
     },
-    ...(isPagesBuild ? { spa: { enabled: true } } : {}),
   },
 });
