@@ -101,6 +101,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
+    scripts: [
+      {
+        type: "text/javascript",
+        children: `
+          if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+          }
+          window.scrollTo(0, 0);
+          // Strip any ?_r=<timestamp> helper used to force a top-aligned reload.
+          if (location.search.indexOf('_r=') !== -1) {
+            history.replaceState(null, '', location.pathname + location.hash);
+          }
+        `,
+      },
+    ],
+
+
   }),
   shellComponent: RootShell,
   component: RootComponent,
