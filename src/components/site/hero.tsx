@@ -48,7 +48,7 @@ export function Hero() {
             </span>
 
             <h1 className="text-4xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-5xl lg:text-6xl">
-              <span className="text-brand">Your</span>
+              <span className="text-brand">Your multi-cluster</span>
               private cloud,
               <br className="hidden sm:block" /> delivered in <span className="text-brand">one week</span>.
             </h1>
