@@ -14,7 +14,7 @@ const services = [
     group: "Delivery & supply chain",
     items: [
       "GitLab CE on a dedicated server as the single source of truth",
-      "ArgoCD controllers reconciling every cluster from Git",
+      "Argo CD controllers reconciling every cluster from Git",
       "Harbor OCI registry with per-project robot accounts",
       "Jenkins pipelines with Cosign image signing and verified deploys",
     ],
@@ -23,9 +23,9 @@ const services = [
     group: "Runtime & data",
     items: [
       "Istio Ambient mode — mTLS without sidecar overhead",
-      "Rook-Ceph NVMe OSD pools for block, file and object storage",
+      "Rook-Ceph OSD pools for block, file and object storage",
       "Replicated persistent volumes for stateful workloads",
-      "Spring MVC reference application deployed as a live proof",
+      "Spring MVC reference application deployed as a demo",
     ],
   },
   {
@@ -56,15 +56,10 @@ export function PlatformServices() {
         <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2">
           {services.map((service) => (
             <div key={service.group} className="bg-surface p-8">
-              <h3 className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand">
-                {service.group}
-              </h3>
+              <h3 className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand">{service.group}</h3>
               <ul className="mt-5 space-y-3">
                 {service.items.map((item) => (
-                  <li
-                    key={item}
-                    className="flex gap-3 text-sm leading-relaxed text-muted-foreground"
-                  >
+                  <li key={item} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
                     <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
                     {item}
                   </li>

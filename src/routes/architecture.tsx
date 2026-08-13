@@ -7,7 +7,7 @@ import { Cta } from "@/components/site/cta";
 
 const title = "Reference Architecture — KubeSailor Private Cloud";
 const description =
-  "Three highly available Kubernetes clusters on bare metal: admin tooling, application workloads and Rook-Ceph storage, joined by Istio Ambient and GitOps.";
+  "Five highly available clusters on bare metal — admin tooling, application workloads, Rook-Ceph storage, HAProxy load balancing and Bind9 DNS — joined by Istio Ambient and GitOps into one sovereign private cloud.";
 
 export const Route = createFileRoute("/architecture")({
   head: () => ({
@@ -30,11 +30,11 @@ function ArchitecturePage() {
         eyebrow="Reference architecture"
         title={
           <>
-            Three clusters, one <span className="text-brand">sovereign platform</span>
+            Purpose-built clusters, one <span className="text-brand">sovereign platform</span>
           </>
         }
-        description="KubeSailor separates platform tooling, application workloads and storage into dedicated highly available clusters, each with its own control plane and a shared HA edge."
-        meta={["Ubuntu 24.04 LTS", "kubeadm HA control planes", "Istio Ambient mesh", "Rook-Ceph NVMe"]}
+        description="KubeSailor splits platform tooling, application workloads, persistent storage, traffic ingress and DNS resolution into dedicated highly available clusters. Each layer runs its own control plane or virtual IP, so governance, compute, data, load balancing and name resolution fail, scale and upgrade independently — while the whole platform feels like one sovereign cloud."
+        meta={["Ubuntu 24.04 LTS", "kubeadm HA control planes", "HAProxy + Keepalived", "Bind9 DNS cluster"]}
       />
       <Architecture />
       <PlatformServices />

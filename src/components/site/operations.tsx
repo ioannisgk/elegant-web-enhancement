@@ -1,11 +1,11 @@
 import { SectionHeading } from "./primitives";
 
 const inventory = [
-  { role: "Load balancers", nodes: "2 nodes", detail: "HAProxy + Keepalived pair, shared virtual IP" },
-  { role: "DNS servers", nodes: "2 nodes", detail: "Bind9 primary/secondary with VRRP failover" },
-  { role: "Admin cluster", nodes: "3 + 2 nodes", detail: "HA control plane, platform tooling workers" },
-  { role: "Workload cluster", nodes: "3 + 3 nodes", detail: "HA control plane, application workers" },
-  { role: "Storage cluster", nodes: "3 + 3 nodes", detail: "Ceph monitors and NVMe OSD nodes" },
+  { role: "Load balancers", nodes: "3 nodes", detail: "HAProxy + Keepalived, shared virtual IP" },
+  { role: "DNS servers", nodes: "3 nodes", detail: "Bind9 cluster with VRRP failover" },
+  { role: "Admin cluster", nodes: "7 nodes", detail: "HA control plane, platform tooling workers" },
+  { role: "Workload cluster", nodes: "7 nodes", detail: "HA control plane, application workers" },
+  { role: "Storage cluster", nodes: "6 nodes", detail: "Ceph monitors and OSD nodes" },
   { role: "GitLab server", nodes: "1 node", detail: "Dedicated source of truth, outside the clusters" },
 ];
 
@@ -20,7 +20,7 @@ const drills = [
   },
   {
     title: "Control plane node loss",
-    body: "A control plane member is drained and powered down. etcd keeps quorum, the API server stays reachable through the VIP and workloads are untouched.",
+    body: "A control plane member is drained, etcd keeps quorum, the API server stays reachable through the VIP and workloads are untouched.",
   },
   {
     title: "Storage resilience",
@@ -37,7 +37,7 @@ export function Operations() {
             align="left"
             eyebrow="Before day one"
             title="The hardware we start from"
-            description="A minimum of 19 nodes running Ubuntu 24.04 LTS with static addressing, out-of-band access and datacenter NVMe drives. Twenty-five nodes is the recommended footprint for full high availability with headroom."
+            description="A minimum of 19 nodes running Ubuntu with static addressing, and datacenter drives. The recommended number of nodes is 27, for full high availability and better performance."
           />
 
           <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-soft">
@@ -59,7 +59,7 @@ export function Operations() {
                 {inventory.map((row) => (
                   <tr key={row.role}>
                     <td className="p-5 font-medium">{row.role}</td>
-                    <td className="p-5 font-mono text-xs text-brand">{row.nodes}</td>
+                    <td className="p-5 font-mono text-sm text-brand">{row.nodes}</td>
                     <td className="hidden p-5 text-muted-foreground sm:table-cell">{row.detail}</td>
                   </tr>
                 ))}
@@ -94,7 +94,7 @@ export function Operations() {
             {[
               {
                 title: "GitOps repositories",
-                body: "Every cluster manifest, Helm value and pipeline definition, in GitLab, reconciled by ArgoCD.",
+                body: "Every cluster manifest, Helm value and pipeline definition, in GitLab, reconciled by Argo CD applications.",
               },
               {
                 title: "Operational runbooks",

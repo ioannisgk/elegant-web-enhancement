@@ -13,20 +13,20 @@ const days = [
     tag: "Networking & K8s",
     title: "HA infrastructure & Kubernetes",
     body: "HA DNS (Bind9 + Keepalived), HA load balancers (HAProxy + Keepalived) and HA Kubernetes control planes via kubeadm.",
-    tools: "kubeadm · Bind9 · HAProxy",
+    tools: "Bind9 · HAProxy · kubeadm",
   },
   {
     day: "Day 03",
     tag: "GitOps platform",
     title: "GitLab & GitOps setup",
-    body: "Dedicated GitLab CE server, repository import and ArgoCD controllers deployed across every cluster.",
-    tools: "GitLab CE · ArgoCD · Docker",
+    body: "Dedicated GitLab CE server, repository import and Argo CD controllers deployed across every cluster.",
+    tools: "GitLab CE · Docker · Argo CD",
   },
   {
     day: "Day 04",
     tag: "Storage & mesh",
     title: "Rook-Ceph & Istio Ambient",
-    body: "Distributed NVMe storage pools and sidecarless service mesh wired into the workload cluster.",
+    body: "Distributed storage pools and sidecarless service mesh wired into all the Kubernetes clusters.",
     tools: "Rook-Ceph · Istio Ambient",
   },
   {
@@ -34,7 +34,7 @@ const days = [
     tag: "CI/CD & registry",
     title: "Harbor & Jenkins pipelines",
     body: "Harbor OCI registry on the admin cluster, Jenkins CI/CD on the workload cluster with Cosign image signing.",
-    tools: "Harbor · Jenkins · Cosign",
+    tools: "Harbor · Cosign · Jenkins",
   },
   {
     day: "Day 06",
@@ -80,9 +80,8 @@ export function Blueprint() {
             <span className="font-mono text-xs font-semibold text-gold">Day 07 · Handoff</span>
             <h3 className="text-2xl font-semibold">Demo application & HA failover drills</h3>
             <p className="leading-relaxed text-ink-foreground/70">
-              We deploy a Spring MVC reference application, run failover drills across DNS, load
-              balancer and control plane VIPs, then hand over the GitOps repositories and
-              operational runbooks.
+              We deploy a Spring MVC reference application, run failover drills across DNS, load balancer and control
+              plane VIPs, then hand over the GitOps repositories and operational documentation.
             </p>
           </div>
           <div className="shrink-0 rounded-xl border border-ink-foreground/15 px-6 py-5">

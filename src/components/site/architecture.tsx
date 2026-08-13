@@ -16,56 +16,108 @@ type Tab = {
 const tabs: [Tab, ...Tab[]] = [
   {
     id: "admin",
-    tab: "Admin & control",
+    tab: "HA Admin Cluster",
     kicker: "Management plane",
     title: "Admin & governance control cluster",
-    body: "An isolated, hardened management plane running GitLab CE, the ArgoCD GitOps engine, the Harbor registry and a Prometheus/Thanos telemetry stack.",
+    body: "The platform's control center. Runs Argo CD, the Harbor container registry, and the centralized observability stack that aggregates metrics, logs, and traces from all clusters.",
     points: [
-      "Ubuntu 24.04 LTS control plane nodes",
-      "Automated GitOps sync via ArgoCD",
-      "Centralised GitLab and Harbor credential management",
+      "Native kubeadm installed HA Kubernetes cluster",
+      "Calico networking and Gateway API",
+      "GitOps ready with Argo CD projects",
+      "Istio Ambient Mode as a Service Mesh",
+      "Includes Prometheus, Grafana, Thanos, Harbor",
     ],
     specs: [
-      ["Control nodes", "3× control plane + worker"],
-      ["CPU per node", "8 vCPU / 16 GB RAM"],
-      ["Disk", "SSD / NVMe"],
-      ["Network", "Static IP topology"],
+      ["Control nodes", "3× nodes"],
+      ["Worker nodes", "4× nodes"],
+      ["CPU per node", "16 vCPU"],
+      ["RAM per node", "32 GB RAM"],
+      ["Disk per node", "120 GB"],
+      ["Network", "Static IP"],
     ],
   },
   {
     id: "compute",
-    tab: "Workload compute",
+    tab: "HA Workload Cluster",
     kicker: "Workload runtime",
-    title: "Workload compute cluster with Istio Ambient",
-    body: "A high-throughput bare metal execution layer running Istio Ambient for sidecarless L7 routing, HAProxy + Keepalived load balancing and Jenkins CI/CD integration.",
+    title: "Workload compute cluster with Jenkins",
+    body: "This is where product environments run. Jenkins executes CI/CD pipeline stages here via on-demand agent pods; applications are deployed and promoted through Argo CD.",
     points: [
-      "Sidecarless L7 proxy routing with Istio Ambient",
-      "Containerised workloads via kubeadm and ArgoCD",
-      "HAProxy + Keepalived VRRP virtual IP load balancing",
+      "Native kubeadm installed HA Kubernetes cluster",
+      "Calico networking and Gateway API",
+      "GitOps ready with Argo CD projects",
+      "Istio Ambient Mode as a Service Mesh",
+      "Includes Jenkins and demo applications",
     ],
     specs: [
-      ["Compute nodes", "4× bare metal (1 CP + 3 worker)"],
-      ["CPU per node", "8 vCPU / 16 GB RAM minimum"],
-      ["Disk", "SSD / NVMe OS drive"],
-      ["Network", "Static IP interface"],
+      ["Control nodes", "3× nodes"],
+      ["Worker nodes", "4× nodes"],
+      ["CPU per node", "16 vCPU"],
+      ["RAM per node", "32 GB RAM"],
+      ["Disk per node", "120 GB"],
+      ["Network", "Static IP"],
     ],
   },
   {
     id: "storage",
-    tab: "Rook-Ceph storage",
+    tab: "HA Storage Cluster",
     kicker: "Persistent storage",
     title: "Rook-Ceph distributed storage cluster",
-    body: "An enterprise distributed storage pool built on raw NVMe drives, providing HA block storage (RWO/RWX), a shared filesystem (CephFS) and an S3-compatible object endpoint.",
+    body: "A dedicated Ceph-backed storage layer via Rook-Ceph, exposing block and filesystem storage classes consumed by the other clusters — decoupling storage capacity from compute.",
     points: [
-      "Sub-millisecond NVMe OSD throughput",
-      "Automatic 3× replication and failover recovery",
-      "Built-in S3 object storage API endpoint",
+      "Native kubeadm installed HA Kubernetes cluster",
+      "Calico networking and Gateway API",
+      "GitOps ready with Argo CD projects",
+      "Istio Ambient Mode as a Service Mesh",
+      "Includes Rook-Ceph and demo applications",
     ],
     specs: [
-      ["Storage nodes", "3× dedicated storage servers"],
-      ["OSDs per node", "4–8 datacenter NVMe SSDs"],
-      ["RAM", "64 GB+ for Ceph caching"],
-      ["Network", "Dedicated storage topology"],
+      ["Control nodes", "3× nodes"],
+      ["Worker nodes", "3× nodes"],
+      ["CPU per node", "16 vCPU"],
+      ["RAM per node", "32 GB RAM"],
+      ["Disk per node", "800 GB"],
+      ["Network", "Static IP"],
+    ],
+  },
+  {
+    id: "lb",
+    tab: "LB Cluster",
+    kicker: "Traffic ingress",
+    title: "HA load balancer cluster",
+    body: "The entry point for all external traffic. The load balancer nodes share a virtual IP, routing requests to the correct cluster based on domain and path rules.",
+    points: [
+      "Floating virtual IP with automatic failover",
+      "Routes traffic to Admin, Workload and Storage clusters",
+      "Health-checked backends with automatic removal",
+      "TLS termination at the edge before forwarding",
+    ],
+    specs: [
+      ["LB", "3× nodes"],
+      ["CPU per node", "4 vCPU"],
+      ["RAM per node", "8 GB RAM"],
+      ["Disk per node", "40 GB"],
+      ["Network", "Static IP"],
+    ],
+  },
+  {
+    id: "dns",
+    tab: "DNS Cluster",
+    kicker: "Name resolution",
+    title: "HA DNS Cluster",
+    body: "The authoritative name-resolution layer. It resolves service domains to the LB's virtual IP, so client traffic reaches the right cluster through a single, highly available DNS endpoint.",
+    points: [
+      "Floating virtual IP for always-on DNS queries",
+      "A records map service domains to the LB cluster VIP",
+      "Zone changes propagate automatically across nodes",
+      "Clients point to one DNS VIP, failover is transparent",
+    ],
+    specs: [
+      ["DNS nodes", "3× nodes"],
+      ["CPU per node", "4 vCPU"],
+      ["RAM per node", "8 GB RAM"],
+      ["Disk per node", "40 GB"],
+      ["Network", "Static IP"],
     ],
   },
 ];
@@ -107,9 +159,7 @@ export function Architecture() {
 
           <div className="grid gap-8 rounded-2xl border border-border bg-surface p-8 shadow-card lg:grid-cols-2 lg:p-10">
             <div className="space-y-5">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand">
-                {current.kicker}
-              </p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand">{current.kicker}</p>
               <h3 className="text-2xl font-semibold">{current.title}</h3>
               <p className="leading-relaxed text-muted-foreground">{current.body}</p>
               <ul className="space-y-2.5 pt-2">

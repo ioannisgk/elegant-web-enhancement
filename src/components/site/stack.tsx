@@ -1,16 +1,16 @@
 import { SectionHeading } from "./primitives";
 
 const stack = [
-  { name: "Ubuntu 24.04 LTS", role: "Server operating system" },
   { name: "kubeadm Kubernetes", role: "Cluster orchestration" },
+  { name: "Argo CD projects", role: "GitOps delivery" },
   { name: "Istio Ambient", role: "Sidecarless service mesh" },
-  { name: "Rook-Ceph", role: "HA distributed storage" },
-  { name: "ArgoCD", role: "GitOps delivery" },
-  { name: "GitLab CE", role: "Source & pipelines" },
-  { name: "Harbor + Cosign", role: "Registry & image signing" },
-  { name: "HAProxy + Keepalived", role: "Load balancing & VIPs" },
-  { name: "Prometheus + Thanos", role: "Metrics & long-term storage" },
+  { name: "Prometheus + Thanos", role: "Metrics, long-term storage" },
   { name: "Loki + Tempo", role: "Logs & distributed tracing" },
+  { name: "Harbor + Cosign", role: "Registry & image signing" },
+  { name: "Jenkins Pipelines", role: "Dynamic agents" },
+  { name: "Rook-Ceph", role: "HA distributed storage" },
+  { name: "HAProxy + Keepalived", role: "Load balancing & VIPs" },
+  { name: "GitLab CE", role: "Source control" },
 ];
 
 export function TechStack() {
