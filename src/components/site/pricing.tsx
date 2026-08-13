@@ -9,7 +9,7 @@ const tiers = [
     price: "€55,000",
     note: "one-time · excl. VAT",
     tagline:
-      "Turnkey deployment on your own servers within one week by senior Kubernetes architects.",
+      "Turnkey deployment on your own physical or virtual servers, completed in one week by senior Kubernetes architects.",
     features: [
       "Complete setup on client servers within one week",
       "Three-cluster architecture (admin, compute, storage)",
@@ -25,7 +25,7 @@ const tiers = [
     price: "€65,000",
     note: "one-time · excl. VAT",
     tagline:
-      "Everything in the base engagement plus 30 days of dedicated engineering support and SLA cover.",
+      "Includes everything in the base engagement plan, plus 30 days of dedicated engineering support and SLA cover.",
     features: [
       "Everything in Private Cloud Platform",
       "One month of post-launch technical support",
@@ -41,7 +41,7 @@ const tiers = [
     price: "€750,000",
     note: "one-time · excl. VAT",
     tagline:
-      "Full source delivery and workshop. Resell to clients, train teams or run managed services.",
+      "Full source code delivery and online workshop. You can resell to clients, train teams or run managed services.",
     features: [
       "Full source repository (scripts, manifests)",
       "Interactive engineering workshop and walkthrough",
@@ -76,9 +76,7 @@ export function Pricing() {
               key={tier.name}
               className={cn(
                 "relative flex flex-col rounded-2xl border bg-surface p-8",
-                tier.featured
-                  ? "border-brand/40 shadow-lift lg:-mt-4 lg:pb-12"
-                  : "border-border shadow-soft",
+                tier.featured ? "border-brand/40 shadow-lift lg:-mt-4 lg:pb-12" : "border-border shadow-soft",
               )}
             >
               {tier.featured ? (
@@ -91,9 +89,7 @@ export function Pricing() {
                 {tier.badge}
               </p>
               <h3 className="mt-3 text-xl font-semibold">{tier.name}</h3>
-              <p className="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-muted-foreground">
-                {tier.tagline}
-              </p>
+              <p className="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-muted-foreground">{tier.tagline}</p>
 
               <div className="mt-6 border-y border-border py-6">
                 <p className="font-display text-4xl font-semibold tracking-tight">{tier.price}</p>
@@ -104,10 +100,7 @@ export function Pricing() {
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-2.5">
                     <Check
-                      className={cn(
-                        "mt-0.5 h-4 w-4 shrink-0",
-                        tier.featured ? "text-brand" : "text-muted-foreground",
-                      )}
+                      className={cn("mt-0.5 h-4 w-4 shrink-0", tier.featured ? "text-brand" : "text-muted-foreground")}
                     />
                     <span className="text-muted-foreground">{feature}</span>
                   </li>
