@@ -33,7 +33,7 @@ function DeliveryPage() {
           </>
         }
         description="Every engagement runs the same scripted sequence, so the timeline, the scope and the outcome are known before we start."
-        meta={["19 nodes minimum", "25 nodes recommended", "Fixed one-week schedule", "Full handover"]}
+        meta={["21 nodes minimum", "27 nodes recommended", "Fixed one-week schedule", "Full handover"]}
       />
       <Blueprint />
       <Operations />

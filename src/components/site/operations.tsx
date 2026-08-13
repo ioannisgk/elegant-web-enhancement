@@ -37,7 +37,7 @@ export function Operations() {
             align="left"
             eyebrow="Before day one"
             title="The hardware we start from"
-            description="A minimum of 19 nodes running Ubuntu with static addressing, and datacenter drives. The recommended number of nodes is 27, for full high availability and better performance."
+            description="A minimum of 21 nodes running Ubuntu with static addressing, and datacenter drives (non HA setup). The recommended number of nodes is 27, for full high availability and better performance."
           />
 
           <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-soft">
