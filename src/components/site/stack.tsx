@@ -5,11 +5,11 @@ const stack = [
   { name: "Argo CD projects", role: "GitOps delivery" },
   { name: "Istio Ambient", role: "Sidecarless service mesh" },
   { name: "Prometheus + Thanos", role: "Metrics, long-term storage" },
-  { name: "Loki + Tempo", role: "Logs & distributed tracing" },
-  { name: "Harbor + Cosign", role: "Registry & image signing" },
+  { name: "Loki + Tempo", role: "Logs, distributed tracing" },
+  { name: "Harbor + Cosign", role: "Registry, image signing" },
   { name: "Jenkins Pipelines", role: "Dynamic agents" },
   { name: "Rook-Ceph", role: "HA distributed storage" },
-  { name: "HAProxy + Keepalived", role: "Load balancing & VIPs" },
+  { name: "HAProxy + Keepalived", role: "Load balancing, VIPs" },
   { name: "GitLab CE", role: "Source control" },
 ];
 

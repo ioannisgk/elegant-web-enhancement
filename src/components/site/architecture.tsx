@@ -93,7 +93,7 @@ const tabs: [Tab, ...Tab[]] = [
       "TLS termination at the edge before forwarding",
     ],
     specs: [
-      ["LB", "3× nodes"],
+      ["LB nodes", "3× nodes"],
       ["CPU per node", "4 vCPU"],
       ["RAM per node", "8 GB RAM"],
       ["Disk per node", "40 GB"],

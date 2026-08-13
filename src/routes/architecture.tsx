@@ -30,11 +30,11 @@ function ArchitecturePage() {
         eyebrow="Reference architecture"
         title={
           <>
-            Purpose-built clusters, one <span className="text-brand">sovereign platform</span>
+            Five clusters, one <span className="text-brand">sovereign platform</span>
           </>
         }
-        description="KubeSailor splits platform tooling, application workloads, persistent storage, traffic ingress and DNS resolution into dedicated highly available clusters. Each layer runs its own control plane or virtual IP, so governance, compute, data, load balancing and name resolution fail, scale and upgrade independently — while the whole platform feels like one sovereign cloud."
-        meta={["Ubuntu 24.04 LTS", "kubeadm HA control planes", "HAProxy + Keepalived", "Bind9 DNS cluster"]}
+        description="KubeSailor separates platform tooling, application workloads and storage into dedicated highly available clusters, each with its own control plane and a shared HA edge."
+        meta={["HA Kubernetes", "GitOps with Argo CD", "Prometheus Grafana Tempo", "Rook-Ceph HA storage"]}
       />
       <Architecture />
       <PlatformServices />
