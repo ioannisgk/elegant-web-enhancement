@@ -1,11 +1,23 @@
 import { SectionHeading } from "./primitives";
 
 const rows: [string, string, string, string][] = [
-  ["Deployment time", "1 day", "3–6 months", "1 week"],
+  ["Time to production", "1 day (control plane only)", "3–6 months", "1 week, fixed scope"],
   ["Data sovereignty", "US Cloud Act subject", "100% private", "100% private (EU / self-hosted)"],
+  ["Platform topology", "Single cluster, add-ons extra", "Whatever you build", "5 HA clusters: 3× Kubernetes, LB, DNS"],
   ["Egress bandwidth", "$0.09 / GB", "Free or flat rate", "Included / flat rate"],
-  ["Networking", "AWS-VPC CNI", "Flannel / Calico", "Istio Ambient mode"],
-  ["HA storage engine", "AWS EBS / EFS", "Manual setup required", "Rook-Ceph HA NVMe pool"],
+  [
+    "Service mesh & networking",
+    "AWS-VPC CNI, mesh extra",
+    "Flannel / Calico, mesh DIY",
+    "Calico + Istio Ambient, mTLS by default",
+  ],
+  ["HA storage engine", "AWS EBS / EFS, per-GB billed", "Manual setup required", "Rook-Ceph HA storage pool"],
+  [
+    "CI/CD, registry & GitOps",
+    "Bring your own, priced per service",
+    "Assembled and maintained by you",
+    "Argo CD, Jenkins, Harbor preconfigured",
+  ],
   ["Ownership of tooling", "Vendor-managed", "Yours, unsupported", "Yours, documented and handed over"],
 ];
 

@@ -37,7 +37,7 @@ export function Whitelabel() {
     <section id="whitelabel" className="section-y border-b border-border bg-background">
       <div className="container-page space-y-14">
         <SectionHeading
-        tone="gold"
+          tone="gold"
           eyebrow="What you receive"
           title={
             <>
@@ -50,9 +50,7 @@ export function Whitelabel() {
         <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
           {items.map((item) => (
             <article key={item.title} className="flex flex-col gap-3 bg-surface p-8">
-              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gold">
-                {item.label}
-              </span>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gold">{item.label}</span>
               <h3 className="text-lg font-semibold">{item.title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{item.body}</p>
             </article>
@@ -65,7 +63,7 @@ export function Whitelabel() {
               <span className="text-[oklch(0.75_0.10_80)]">"a product line we run"</span>.
             </p>
             <button
-              onClick={() => open("Whitelabel & IP licence")}
+              onClick={() => open("Whitelabel & IP Licence")}
               className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[oklch(0.75_0.10_80)] px-5 py-3 text-sm font-semibold text-ink transition hover:brightness-95"
             >
               Enquire about the IP licence <ArrowRight className="h-4 w-4" />
