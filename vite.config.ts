@@ -12,6 +12,7 @@ export default defineConfig({
     server: { entry: "server" },
     prerender: {
       enabled: isPagesBuild,
+      crawlLinks: false,
     },
     pages: isPagesBuild
       ? [
