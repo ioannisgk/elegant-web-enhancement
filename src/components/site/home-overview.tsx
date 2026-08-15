@@ -67,7 +67,7 @@ const phases = [
   {
     range: "Days 01–02",
     title: "Foundation",
-    body: "Ubuntu as an OS across every node, HA DNS and load balancers with Keepalived VIPs, then kubeadm control planes.",
+    body: "Setup Ubuntu across every node, HA DNS and load balancers with Keepalived VIPs, then kubeadm control planes.",
   },
   {
     range: "Days 03–05",
