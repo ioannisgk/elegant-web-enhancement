@@ -6,17 +6,17 @@ const items = [
   {
     label: "Resell as your own",
     title: "Deploy KubeSailor for your clients",
-    body: "Take the platform to market under your own brand, on your own commercial terms, with no per-deployment fee back to us. You control the roadmap, the pricing and the customer relationship.",
+    body: "Take the platform to market under your own brand, on your own commercial terms, with no per-deployment fee back to us. You have full control over the roadmap and pricing.",
   },
   {
     label: "Complete curriculum base",
     title: "Launch training programmes",
-    body: "Turn the workshop content into live cohorts, recorded courses or certification tracks. HA networking, GitOps, service mesh, storage and observability is a genuine curriculum, not a webinar.",
+    body: "Turn the workshop content into live cohorts, recorded courses or certification tracks. HA networking, GitOps, storage and observability is a genuine curriculum, for your clients.",
   },
   {
     label: "Recurring SLA revenue",
     title: "Offer ongoing support as a service",
-    body: "Become the operations partner for any organisation running KubeSailor — you set the scope, the terms and the pricing. Recurring support contracts become a predictable revenue stream.",
+    body: "Become the operations partner for any organisation running KubeSailor — you set the scope. Recurring support contracts become a predictable revenue stream.",
   },
   {
     label: "Unrestricted modification",
@@ -26,7 +26,7 @@ const items = [
   {
     label: "Single buyout fee",
     title: "One cost, unlimited use",
-    body: "€750,000 (+VAT) transfers the underlying IP outright. Every deployment, course or support contract you build afterwards is yours to monetise.",
+    body: "€750,000 (+VAT) transfers the underlying IP outright. Every deployment for your clients, training course or support contract you build afterwards is yours to monetise.",
   },
 ];
 
@@ -37,7 +37,7 @@ export function Whitelabel() {
     <section id="whitelabel" className="section-y border-b border-border bg-background">
       <div className="container-page space-y-14">
         <SectionHeading
-        tone="gold"
+          tone="gold"
           eyebrow="What you receive"
           title={
             <>
@@ -50,9 +50,7 @@ export function Whitelabel() {
         <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
           {items.map((item) => (
             <article key={item.title} className="flex flex-col gap-3 bg-surface p-8">
-              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gold">
-                {item.label}
-              </span>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gold">{item.label}</span>
               <h3 className="text-lg font-semibold">{item.title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{item.body}</p>
             </article>
