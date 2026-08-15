@@ -2,11 +2,20 @@ import { SectionHeading } from "./primitives";
 
 const rows: [string, string, string, string][] = [
   ["Deployment time", "1 day", "3–6 months", "1 week"],
-  ["Data sovereignty", "US Cloud Act subject", "100% private", "100% private (EU / self-hosted)"],
-  ["Egress bandwidth", "$0.09 / GB", "Free or flat rate", "Included / flat rate"],
-  ["Networking", "AWS-VPC CNI", "Flannel / Calico", "Istio Ambient mode"],
-  ["HA storage engine", "AWS EBS / EFS", "Manual setup required", "Rook-Ceph HA NVMe pool"],
-  ["Observability stack", "CloudWatch / Cloud Monitoring, priced per metric", "Assembled and maintained by you", "Prometheus, Thanos, Grafana Alloy, Loki, Tempo"],
+  ["Data sovereignty", "US Cloud Act subject", "100% private", "100% private (EU or self-hosted)"],
+  ["HA storage engine", "AWS EBS / EFS, per-GB billed", "Manual setup required", "Rook-Ceph HA storage pool"],
+  [
+    "CI/CD, registry & GitOps",
+    "AWS-VPC CNI",
+    "Assembled & maintained by you",
+    "Argo CD, Jenkins, Harbor preconfigured",
+  ],
+  [
+    "Observability stack",
+    "CloudWatch, priced per metric",
+    "Assembled & maintained by you",
+    "Prometheus, Thanos, Grafana, Loki, Tempo",
+  ],
 ];
 
 export function Comparison() {
