@@ -1,0 +1,34 @@
+# FAQ page: replace 5 questions with 8
+
+Replace the current five FAQ entries in `src/components/site/faq.tsx` with eight, drawn strictly from what the Architecture, Delivery, Pricing and Whitelabel pages already state. Styling, layout and the accordion component stay exactly as they are — only the `faqs` array content changes.
+
+## The 8 questions and answers
+
+**1. What exactly do we get at the end of the engagement?**
+A five-cluster sovereign private cloud running on your own hardware: an HA admin cluster, an HA workload cluster, a Rook-Ceph storage cluster, an HAProxy load balancer cluster and a Bind9 DNS cluster, all joined by Istio Ambient and driven by Argo CD. You also receive every repository, manifest and runbook.
+
+**2. How long does delivery take, and what happens each day?**
+One fixed week. Day 01 OS and TLS preparation, Day 02 DNS, load balancing and the three kubeadm clusters, Day 03 GitLab and Argo CD, Day 04 Rook-Ceph and Istio Ambient, Day 05 Harbor and Jenkins, Day 06 the observability stack, Day 07 live high-availability failover drills.
+
+**3. What hardware do we need before day one?**
+A minimum of 21 nodes running Ubuntu with static addressing and datacenter drives; 27 nodes is the recommended fully highly available footprint — 3 load balancers, 3 DNS, 7 admin, 7 workload, 6 storage and 1 dedicated GitLab server. We review your inventory during scoping and confirm the topology before the engagement starts.
+
+**4. Can it run on rented bare metal such as Hetzner or OVHcloud?**
+Yes. KubeSailor is built for bare metal rentals such as Hetzner Robot, OVHcloud and Equinix Metal, as well as company-owned racks, colocation and virtual servers. The only requirements are Ubuntu, static addressing and out-of-band access.
+
+**5. How do you prove the platform is actually highly available?**
+Day 07 is a live drill day. We move the DNS Keepalived VIP under load, fail the active HAProxy node to its standby, drain a Kubernetes control plane member while etcd keeps quorum, and remove a Ceph OSD node to show replication and rebalancing with persistent volumes still online.
+
+**6. What does the platform cost, and are there licence fees?**
+€55,000 for the one-week Private Cloud Platform delivery, €65,000 with 30 days of dedicated senior engineer support, and €750,000 for the whitelabel and IP licence. Every price is one-time and excludes VAT. There are no per-node charges, no subscriptions and no recurring licence fees — the entire stack is open source.
+
+**7. How does this compare with AWS or a DIY bare-metal build?**
+The Pricing page models it in full: production in one week instead of months, no egress billing, a complete observability stack with Prometheus, Thanos, Grafana Alloy, Loki and Tempo, and HA storage included. The interactive TCO calculator lets you enter your own vCPU, RAM, storage and bandwidth figures.
+
+**8. What is the difference between Private Cloud Platform and Whitelabel?**
+Private Cloud Platform is a service: our team deploys KubeSailor onto your servers. Whitelabel (€750,000) is a transfer of intellectual property — the full source repositories, delivery automation, documentation and an engineering workshop, with 100% ownership and no royalties, so you can deploy for clients, run training or sell support under your own brand.
+
+## Technical detail
+
+- Single file edit: `src/components/site/faq.tsx`, `faqs` array only.
+- No changes to `src/routes/faq.tsx`, the hero, headings, or the CTA.
