@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: "What hardware do we need before day one?",
-    a: "A minimum of 21 nodes running Ubuntu with static addressing and datacenter drives; 27 nodes is the recommended fully highly available footprint — 3 load balancers, 3 DNS, 7 admin, 7 workload, 6 storage and 1 dedicated GitLab server. We review your inventory during discovery and confirm the topology before the engagement starts.",
+    a: "A minimum of 21 nodes running Ubuntu with static addressing and datacenter drives; 27 nodes is the recommended fully highly available footprint — 3 load balancers, 3 DNS servers, 7 nodes for the Admin cluster, 7 nodes for the Workload cluster, 6 nodes for the Storage cluster and 1 dedicated GitLab server. We review your inventory during discovery and confirm the topology before the engagement starts.",
   },
   {
     q: "Can it run on rented bare metal such as Hetzner or OVHcloud?",
