@@ -5,7 +5,7 @@ import { Cta } from "@/components/site/cta";
 
 const title = "FAQ — KubeSailor Private Cloud Questions";
 const description =
-  "Hardware requirements, pricing tiers, hosting options, support and what happens after handover — answered before your scoping call.";
+  "Hardware requirements, pricing tiers, hosting options, support and what happens after handover — answered before your discovery call.";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
@@ -28,7 +28,7 @@ function FaqPage() {
         eyebrow="FAQ"
         title={
           <>
-            Answers before the <span className="text-brand">scoping call</span>
+            Answers before the <span className="text-brand">discovery call</span>
           </>
         }
         description="The questions engineering and procurement teams ask us most often when evaluating a move to sovereign bare metal infrastructure."
