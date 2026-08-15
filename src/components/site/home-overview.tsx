@@ -7,21 +7,21 @@ const pillars = [
   {
     icon: Boxes,
     title: "Three purpose-built clusters",
-    body: "An admin cluster for platform tooling, a workload cluster for your applications and a dedicated Rook-Ceph storage cluster — each highly available on its own control plane.",
+    body: "An Admin cluster for platform tooling, a Workload cluster for your applications and a dedicated Rook-Ceph Storage cluster — each highly available on its own control plane.",
     to: "/architecture" as const,
     cta: "Explore the architecture",
   },
   {
     icon: GitBranch,
     title: "GitOps from day one",
-    body: "GitLab CE, ArgoCD, Harbor with Cosign signing and Jenkins pipelines are wired together before handover, so every change to the platform ships through Git.",
+    body: "GitLab CE, ArgoCD, Harbor with Cosign signing and Jenkins pipelines with dynamic agents are wired together before handover, so every change to the platform ships through Git.",
     to: "/delivery" as const,
     cta: "See how we deliver",
   },
   {
     icon: ShieldCheck,
     title: "Sovereign and yours to keep",
-    body: "Your data never leaves your hardware. You receive the repositories, runbooks and credentials — no licences, no per-node fees, no vendor lock-in.",
+    body: "Your data never leaves your hardware. You receive the repositories, automation scripts and credentials — no licences, no per-node fees, no vendor lock-in.",
     to: "/pricing" as const,
     cta: "Review pricing",
   },
@@ -99,9 +99,7 @@ export function DeliveryStrip() {
         <div className="space-y-px overflow-hidden rounded-2xl border border-border bg-border">
           {phases.map((phase) => (
             <div key={phase.range} className="bg-surface p-7 sm:flex sm:gap-8">
-              <p className="font-mono text-xs font-semibold text-brand sm:w-28 sm:shrink-0 sm:pt-1">
-                {phase.range}
-              </p>
+              <p className="font-mono text-xs font-semibold text-brand sm:w-28 sm:shrink-0 sm:pt-1">{phase.range}</p>
               <div className="mt-2 space-y-1.5 sm:mt-0">
                 <h3 className="text-base font-semibold">{phase.title}</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">{phase.body}</p>
@@ -109,10 +107,7 @@ export function DeliveryStrip() {
             </div>
           ))}
           <div className="bg-surface p-7">
-            <PreloaderLink
-              to="/delivery"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand"
-            >
+            <PreloaderLink to="/delivery" className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
               See the day-by-day plan <ArrowRight className="h-4 w-4" />
             </PreloaderLink>
           </div>
@@ -132,19 +127,14 @@ export function PricingTeaser() {
           { label: "Whitelabel & IP", value: "€750,000", body: "The complete source and the right to resell it." },
         ].map((tier) => (
           <div key={tier.label} className="bg-surface p-8">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-              {tier.label}
-            </p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">{tier.label}</p>
             <p className="mt-3 font-display text-3xl font-semibold">{tier.value}</p>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{tier.body}</p>
           </div>
         ))}
       </div>
       <div className="container-page mt-8 text-center">
-        <PreloaderLink
-          to="/pricing"
-          className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand"
-        >
+        <PreloaderLink to="/pricing" className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
           Compare tiers and model your TCO <ArrowRight className="h-4 w-4" />
         </PreloaderLink>
       </div>
