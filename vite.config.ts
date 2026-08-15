@@ -13,5 +13,15 @@ export default defineConfig({
     prerender: {
       enabled: isPagesBuild,
     },
+    pages: isPagesBuild
+      ? [
+          { path: "/" },
+          { path: "/architecture" },
+          { path: "/delivery" },
+          { path: "/pricing" },
+          { path: "/whitelabel" },
+          { path: "/faq" },
+        ]
+      : undefined,
   },
 });
