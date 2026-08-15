@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
-import { ArrowDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "./primitives";
-import tcoAuditPdf from "@/assets/KubeSailor_Bare_Metal_vs_Hyperscaler_TCO_Study.pdf.asset.json";
+import { useContact } from "./contact";
 
 const euro = new Intl.NumberFormat("en-IE", {
   style: "currency",
@@ -17,11 +17,16 @@ const sliders = [
 ] as const;
 
 export function Calculator() {
-  const [values, setValues] = useState({ vcpu: 344, ram: 688, storage: 52, bandwidth: 25 });
+  const { open } = useContact();
+  const [values, setValues] = useState({ vcpu: 128, ram: 512, storage: 20, bandwidth: 25 });
 
   const result = useMemo(() => {
-    const aws = Math.round(values.vcpu * 42 + values.ram * 4.5 + values.storage * 120 + values.bandwidth * 90);
-    const kube = Math.round(values.vcpu * 16 + values.ram * 1.7 + values.storage * 35 + values.bandwidth * 15 + 1600);
+    const aws = Math.round(
+      values.vcpu * 42 + values.ram * 4.5 + values.storage * 120 + values.bandwidth * 90,
+    );
+    const kube = Math.round(
+      values.vcpu * 11 + values.ram * 1.2 + values.storage * 25 + values.bandwidth * 15 + 800,
+    );
     const monthly = aws - kube;
     return {
       aws,
@@ -63,7 +68,9 @@ export function Calculator() {
                   max={slider.max}
                   step={slider.step}
                   value={values[slider.key]}
-                  onChange={(event) => setValues((prev) => ({ ...prev, [slider.key]: Number(event.target.value) }))}
+                  onChange={(event) =>
+                    setValues((prev) => ({ ...prev, [slider.key]: Number(event.target.value) }))
+                  }
                   className="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-border accent-brand"
                 />
               </div>
@@ -81,13 +88,17 @@ export function Calculator() {
               </div>
               <div className="flex items-baseline justify-between border-b border-ink-foreground/10 pb-4">
                 <span className="text-sm text-ink-foreground/70">KubeSailor bare metal</span>
-                <span className="font-mono text-lg font-semibold text-gold">{euro.format(result.kube)}</span>
+                <span className="font-mono text-lg font-semibold text-gold">
+                  {euro.format(result.kube)}
+                </span>
               </div>
               <div>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-foreground/60">
                   Projected annual saving
                 </p>
-                <p className="mt-2 font-display text-4xl font-semibold tracking-tight">{euro.format(result.annual)}</p>
+                <p className="mt-2 font-display text-4xl font-semibold tracking-tight">
+                  {euro.format(result.annual)}
+                </p>
                 <p className="mt-1 text-sm text-ink-foreground/70">
                   ≈ {result.percent}% lower monthly run-rate than the hyperscaler equivalent.
                 </p>
@@ -95,19 +106,15 @@ export function Calculator() {
             </div>
 
             <div className="space-y-3">
-              <a
-                href={tcoAuditPdf.url}
-                download
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => open("Custom TCO audit")}
                 className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-surface px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-surface-muted"
               >
-                Download the TCO audit report
-                <ArrowDown className="h-4 w-4" />
-              </a>
+                Get a custom TCO audit <ArrowRight className="h-4 w-4" />
+              </button>
               <p className="text-xs leading-relaxed text-ink-foreground/50">
-                Indicative modelling only, based on public list pricing and typical European bare metal rates. Your
-                audit produces figures against your actual workloads.
+                Indicative modelling only, based on public list pricing and typical European bare
+                metal rates. Your audit produces figures against your actual workloads.
               </p>
             </div>
           </div>
