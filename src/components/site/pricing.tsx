@@ -8,14 +8,14 @@ const tiers = [
     name: "Private Cloud Platform",
     price: "€55,000",
     note: "one-time · excl. VAT",
-    tagline:
-      "Turnkey deployment on your own servers within one week by senior Kubernetes architects.",
+    tagline: "Turnkey deployment on your own physical or virtual servers, completed in one week.",
     features: [
-      "Complete setup on client servers within one week",
-      "Three-cluster architecture (admin, compute, storage)",
-      "Istio Ambient mesh on Ubuntu 24.04 LTS nodes",
-      "Production shell scripts and GitOps pipeline",
-      "Handover documentation and operational guides",
+      "5-cluster sovereign platform",
+      "1-week fixed-scope delivery",
+      "Runs on your bare-metal or VMs",
+      "Harbor registry & Jenkins CI/CD",
+      "Rook-Ceph storage backend",
+      "Full observability stack configured",
     ],
     featured: false,
     badge: "1-week deployment",
@@ -24,14 +24,14 @@ const tiers = [
     name: "Private Cloud Platform +",
     price: "€65,000",
     note: "one-time · excl. VAT",
-    tagline:
-      "Everything in the base engagement plus 30 days of dedicated engineering support and SLA cover.",
+    tagline: "Includes everything in the base engagement plan, plus 30 days of dedicated support.",
     features: [
-      "Everything in Private Cloud Platform",
-      "One month of post-launch technical support",
-      "Direct Slack / Teams channel with senior engineers",
-      "One-hour priority incident response SLA",
-      "Upgrade and security patch maintenance guidance",
+      "Everything in base package",
+      "5-cluster sovereign platform",
+      "30 days senior engineer cover",
+      "Priority communication channel",
+      "Patch & upgrade guidance",
+      "Post-handover health checks",
     ],
     featured: true,
     badge: "Most chosen by enterprise",
@@ -40,14 +40,14 @@ const tiers = [
     name: "Whitelabel & IP licence",
     price: "€750,000",
     note: "one-time · excl. VAT",
-    tagline:
-      "Full source delivery and workshop. Resell to clients, train teams or run managed services.",
+    tagline: "Full source code delivery. You can resell to clients, train teams or run managed services.",
     features: [
-      "Full source repository (scripts, manifests)",
-      "Interactive engineering workshop and walkthrough",
-      "Unrestricted commercial right to resell",
-      "Right to build proprietary training material",
-      "100% IP ownership transfer, zero royalties",
+      "Full source code transfer",
+      "5-cluster sovereign platform",
+      "Interactive engineering workshop",
+      "100% IP ownership, no royalties",
+      "Whitelabel licensing rights",
+      "Unrestricted commercial use",
     ],
     featured: false,
     badge: "Business IP transfer",
@@ -76,9 +76,7 @@ export function Pricing() {
               key={tier.name}
               className={cn(
                 "relative flex flex-col rounded-2xl border bg-surface p-8",
-                tier.featured
-                  ? "border-brand/40 shadow-lift lg:-mt-4 lg:pb-12"
-                  : "border-border shadow-soft",
+                tier.featured ? "border-brand/40 shadow-lift lg:-mt-4 lg:pb-12" : "border-border shadow-soft",
               )}
             >
               {tier.featured ? (
@@ -91,9 +89,7 @@ export function Pricing() {
                 {tier.badge}
               </p>
               <h3 className="mt-3 text-xl font-semibold">{tier.name}</h3>
-              <p className="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-muted-foreground">
-                {tier.tagline}
-              </p>
+              <p className="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-muted-foreground">{tier.tagline}</p>
 
               <div className="mt-6 border-y border-border py-6">
                 <p className="font-display text-4xl font-semibold tracking-tight">{tier.price}</p>
@@ -104,10 +100,7 @@ export function Pricing() {
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-2.5">
                     <Check
-                      className={cn(
-                        "mt-0.5 h-4 w-4 shrink-0",
-                        tier.featured ? "text-brand" : "text-muted-foreground",
-                      )}
+                      className={cn("mt-0.5 h-4 w-4 shrink-0", tier.featured ? "text-brand" : "text-muted-foreground")}
                     />
                     <span className="text-muted-foreground">{feature}</span>
                   </li>
