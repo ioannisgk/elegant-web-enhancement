@@ -21,7 +21,7 @@ export function Calculator() {
 
   const result = useMemo(() => {
     const aws = Math.round(values.vcpu * 42 + values.ram * 4.5 + values.storage * 120 + values.bandwidth * 90);
-    const kube = Math.round(values.vcpu * 11 + values.ram * 1.2 + values.storage * 25 + values.bandwidth * 15 + 800);
+    const kube = Math.round(values.vcpu * 16 + values.ram * 1.7 + values.storage * 35 + values.bandwidth * 15 + 1600);
     const monthly = aws - kube;
     return {
       aws,
