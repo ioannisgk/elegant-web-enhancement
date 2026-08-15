@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { SectionHeading } from "./primitives";
-import { useContact } from "./contact";
+import tcoAuditPdf from "@/assets/KubeSailor_Bare_Metal_vs_Hyperscaler_TCO_Study.pdf.asset.json";
 
 const euro = new Intl.NumberFormat("en-IE", {
   style: "currency",
@@ -17,12 +17,11 @@ const sliders = [
 ] as const;
 
 export function Calculator() {
-  const { open } = useContact();
   const [values, setValues] = useState({ vcpu: 344, ram: 688, storage: 52, bandwidth: 25 });
 
   const result = useMemo(() => {
     const aws = Math.round(values.vcpu * 42 + values.ram * 4.5 + values.storage * 120 + values.bandwidth * 90);
-    const kube = Math.round(values.vcpu * 11 + values.ram * 1.2 + values.storage * 25 + values.bandwidth * 15 + 800);
+    const kube = Math.round(values.vcpu * 16 + values.ram * 1.7 + values.storage * 35 + values.bandwidth * 15 + 1600);
     const monthly = aws - kube;
     return {
       aws,
@@ -96,12 +95,16 @@ export function Calculator() {
             </div>
 
             <div className="space-y-3">
-              <button
-                onClick={() => open("Custom TCO audit")}
+              <a
+                href={tcoAuditPdf.url}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-surface px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-surface-muted"
               >
-                Get a custom TCO audit <ArrowRight className="h-4 w-4" />
-              </button>
+                Download the TCO audit report
+                <ArrowDown className="h-4 w-4" />
+              </a>
               <p className="text-xs leading-relaxed text-ink-foreground/50">
                 Indicative modelling only, based on public list pricing and typical European bare metal rates. Your
                 audit produces figures against your actual workloads.

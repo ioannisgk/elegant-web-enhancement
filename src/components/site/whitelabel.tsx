@@ -6,17 +6,17 @@ const items = [
   {
     label: "Resell as your own",
     title: "Deploy KubeSailor for your clients",
-    body: "Take the platform to market under your own brand, on your own commercial terms, with no per-deployment fee back to us.",
+    body: "Take the platform to market under your own brand, on your own commercial terms, with no per-deployment fee back to us. You have full control over the roadmap and pricing.",
   },
   {
     label: "Complete curriculum base",
     title: "Launch training programmes",
-    body: "Turn the workshop content into live cohorts, recorded courses or certification tracks. HA networking, GitOps, service mesh, storage and observability is a genuine curriculum, not a webinar.",
+    body: "Turn the workshop content into live cohorts, recorded courses or certification tracks. HA networking, GitOps, storage and observability is a genuine curriculum, for your clients.",
   },
   {
     label: "Recurring SLA revenue",
     title: "Offer ongoing support as a service",
-    body: "Become the operations partner for any organisation running KubeSailor — you set the scope, the terms and the pricing.",
+    body: "Become the operations partner for any organisation running KubeSailor — you set the scope. Recurring support contracts become a predictable revenue stream.",
   },
   {
     label: "Unrestricted modification",
@@ -26,7 +26,7 @@ const items = [
   {
     label: "Single buyout fee",
     title: "One cost, unlimited use",
-    body: "€750,000 (+VAT) transfers the underlying IP outright. Every deployment, course or support contract you build afterwards is yours to monetise.",
+    body: "€750,000 (+VAT) transfers the underlying IP outright. Every deployment for your clients, training course or support contract you build afterwards is yours to monetise.",
   },
 ];
 
