@@ -6,7 +6,7 @@ const items = [
   {
     label: "Resell as your own",
     title: "Deploy KubeSailor for your clients",
-    body: "Take the platform to market under your own brand, on your own commercial terms, with no per-deployment fee back to us.",
+    body: "Take the platform to market under your own brand, on your own commercial terms, with no per-deployment fee back to us. You control the roadmap, the pricing and the customer relationship.",
   },
   {
     label: "Complete curriculum base",
@@ -16,7 +16,7 @@ const items = [
   {
     label: "Recurring SLA revenue",
     title: "Offer ongoing support as a service",
-    body: "Become the operations partner for any organisation running KubeSailor — you set the scope, the terms and the pricing.",
+    body: "Become the operations partner for any organisation running KubeSailor — you set the scope, the terms and the pricing. Recurring support contracts become a predictable revenue stream.",
   },
   {
     label: "Unrestricted modification",

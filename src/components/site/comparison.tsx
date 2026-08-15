@@ -6,7 +6,7 @@ const rows: [string, string, string, string][] = [
   ["Egress bandwidth", "$0.09 / GB", "Free or flat rate", "Included / flat rate"],
   ["Networking", "AWS-VPC CNI", "Flannel / Calico", "Istio Ambient mode"],
   ["HA storage engine", "AWS EBS / EFS", "Manual setup required", "Rook-Ceph HA NVMe pool"],
-  ["Ownership of tooling", "Vendor-managed", "Yours, unsupported", "Yours, documented and handed over"],
+  ["Observability stack", "CloudWatch / Cloud Monitoring, priced per metric", "Assembled and maintained by you", "Prometheus, Thanos, Grafana Alloy, Loki, Tempo"],
 ];
 
 export function Comparison() {
