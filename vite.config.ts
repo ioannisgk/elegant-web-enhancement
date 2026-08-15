@@ -12,6 +12,17 @@ export default defineConfig({
     server: { entry: "server" },
     prerender: {
       enabled: isPagesBuild,
+      crawlLinks: false,
     },
+    pages: isPagesBuild
+      ? [
+          { path: "/" },
+          { path: "/architecture" },
+          { path: "/delivery" },
+          { path: "/pricing" },
+          { path: "/whitelabel" },
+          { path: "/faq" },
+        ]
+      : undefined,
   },
 });

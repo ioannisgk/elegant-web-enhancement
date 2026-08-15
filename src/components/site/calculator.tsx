@@ -1,7 +1,8 @@
 import { useMemo, useState } from "react";
 import { ArrowDown } from "lucide-react";
 import { SectionHeading } from "./primitives";
-import tcoAuditPdf from "@/assets/KubeSailor_Bare_Metal_vs_Hyperscaler_TCO_Study.pdf.asset.json";
+
+const tcoAuditPdfUrl = "/KubeSailor_Bare_Metal_vs_Hyperscaler_TCO_Study.pdf";
 
 const euro = new Intl.NumberFormat("en-IE", {
   style: "currency",
@@ -96,7 +97,7 @@ export function Calculator() {
 
             <div className="space-y-3">
               <a
-                href={tcoAuditPdf.url}
+                href={tcoAuditPdfUrl}
                 download
                 target="_blank"
                 rel="noopener noreferrer"
