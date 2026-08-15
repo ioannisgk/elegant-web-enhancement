@@ -1,12 +1,13 @@
 import { SectionHeading } from "./primitives";
 
 const rows: [string, string, string, string][] = [
-  ["Deployment time", "1 day", "3–6 months", "1 week"],
-  ["Data sovereignty", "US Cloud Act subject", "100% private", "100% private (EU or self-hosted)"],
+  ["Time to production", "1 day (control plane only)", "3–6 months", "1 week, fixed scope"],
+  ["Data sovereignty", "US Cloud Act subject", "100% private", "100% private (EU / self-hosted)"],
+  ["Platform topology", "Single cluster, add-ons extra", "Whatever you build", "5 HA clusters: 3× Kubernetes, LB, DNS"],
   ["HA storage engine", "AWS EBS / EFS, per-GB billed", "Manual setup required", "Rook-Ceph HA storage pool"],
   [
     "CI/CD, registry & GitOps",
-    "AWS-VPC CNI",
+    "Bring your own, priced per service",
     "Assembled & maintained by you",
     "Argo CD, Jenkins, Harbor preconfigured",
   ],
