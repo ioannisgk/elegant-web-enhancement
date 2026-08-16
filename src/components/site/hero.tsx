@@ -61,7 +61,7 @@ export function Hero() {
               >
                 Download the TCO audit <ArrowDown className="h-4 w-4" />
               </a>
-              <Link to="/architecture">
+              <Link to="/delivery">
                 <ButtonLink variant="secondary" className="w-full sm:w-auto">
                   See the platform architecture
                 </ButtonLink>
