@@ -2,42 +2,42 @@ import { SectionHeading } from "./primitives";
 
 const days = [
   {
-    day: "Day 01",
+    day: "Day 1",
     tag: "Hardware & OS",
     title: "Server OS preparation",
     body: "Provision every node with Ubuntu, assign static IPs and increase the kernel limits. Generate wildcard TLS certificates for each cluster and update nodes with the latest security patches.",
     tools: "Linux · Bash · OpenSSL",
   },
   {
-    day: "Day 02",
+    day: "Day 2",
     tag: "Networking & K8s",
     title: "HA infrastructure & Kubernetes",
     body: "Deploy the Bind9 DNS cluster with Keepalived and build the HAProxy load balancer cluster with VRRP failover. Bootstrap the Admin, Workload and Storage Kubernetes clusters via kubeadm.",
     tools: "Bind9 · HAProxy · kubeadm",
   },
   {
-    day: "Day 03",
+    day: "Day 3",
     tag: "GitOps platform",
     title: "GitLab & GitOps setup",
     body: "Setup GitLab CE and enable automated backups of the GitLab instace. Import the platform repositories, deploy Argo CD and configure each control plane to pull manifests from Git.",
     tools: "GitLab CE · Docker · Argo CD",
   },
   {
-    day: "Day 04",
+    day: "Day 4",
     tag: "Storage & mesh",
     title: "Rook-Ceph & Istio Ambient",
     body: "Deploy the Gateway API and Istio Ambient mode for mTLS. Build the Rook-Ceph storage cluster on dedicated OSD nodes and connect the the clusters to shared persistent volumes.",
     tools: "Rook-Ceph · Istio Ambient",
   },
   {
-    day: "Day 05",
+    day: "Day 5",
     tag: "CI/CD & registry",
     title: "Harbor & Jenkins pipelines",
     body: "Install the Harbor OCI registry on the Admin cluster, then deploy Jenkins with dynamic Agents on the Workload cluster and create CI/CD pipelines with Cosign image signing.",
     tools: "Harbor · Cosign · Jenkins",
   },
   {
-    day: "Day 06",
+    day: "Day 6",
     tag: "Telemetry",
     title: "Observability stack",
     body: "Roll out Prometheus with Thanos sidecars, add Grafana, Loki and Tempo. Federate metrics, logs and traces from all clusters into the Admin cluster for observability and monitoring.",
