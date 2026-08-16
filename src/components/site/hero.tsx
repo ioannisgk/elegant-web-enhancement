@@ -30,7 +30,6 @@ const proof = [
 ];
 
 export function Hero() {
-
   return (
     <section
       id="top"
@@ -64,7 +63,7 @@ export function Hero() {
               </a>
               <Link to="/delivery">
                 <ButtonLink variant="secondary" className="w-full sm:w-auto">
-                  See the delivery process
+                  See the platform architecture
                 </ButtonLink>
               </Link>
             </div>
