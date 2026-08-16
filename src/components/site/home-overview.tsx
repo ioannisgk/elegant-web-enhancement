@@ -6,7 +6,7 @@ import { PreloaderLink } from "./preloader";
 const pillars = [
   {
     icon: Boxes,
-    title: "Three purpose-built clusters",
+    title: "Five purpose-built clusters",
     body: "An Admin cluster for platform tooling, a Workload cluster for your applications and a dedicated Rook-Ceph Storage cluster — each highly available on its own control plane.",
     to: "/architecture" as const,
     cta: "Explore the architecture",
