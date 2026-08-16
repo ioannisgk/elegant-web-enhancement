@@ -5,13 +5,13 @@ import { PreloaderLink } from "./preloader";
 const clusters = [
   {
     icon: Server,
-    name: "LB cluster",
+    name: "Load Balancers",
     detail: "HAProxy · Keepalived",
     nodes: "3 nodes",
   },
   {
     icon: Server,
-    name: "DNS cluster",
+    name: "DNS with failover",
     detail: "Bind9 · HAProxy · Keepalived",
     nodes: "3 nodes",
   },
@@ -29,8 +29,8 @@ const clusters = [
   },
   {
     icon: HardDrive,
-    name: "Rook-Ceph storage",
-    detail: "NVMe OSDs · RBD · CephFS · S3",
+    name: "HA storage layer",
+    detail: "Rook · Ceph · OSDs · RBD · CephFS · S3",
     nodes: "6 nodes",
   },
 ];
