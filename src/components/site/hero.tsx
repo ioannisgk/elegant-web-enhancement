@@ -82,7 +82,7 @@ export function Hero() {
             <div className="flex items-center justify-between border-b border-border pb-4">
               <div className="flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-success" />
-                <span className="text-sm font-semibold">All clusters healthy</span>
+                <span className="text-sm font-semibold">Private cloud platform</span>
               </div>
               <span className="hidden truncate font-mono text-xs text-muted-foreground sm:inline">
                 istio-ambient · active
