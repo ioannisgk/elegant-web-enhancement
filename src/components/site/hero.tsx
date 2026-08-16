@@ -49,9 +49,9 @@ export function Hero() {
             </h1>
 
             <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
-              KubeSailor is a multi-cluster private cloud platform — based on Kubernetes, highly available storage, full
-              observability and GitOps automation — engineered, deployed and handed over by senior Kubernetes
-              architects.
+              KubeSailor is a multi-cluster private cloud platform — based on Kubernetes, with dedicated Load Balancer,
+              DNS and Storage clusters, full observability and GitOps automation — engineered, deployed and handed over
+              by senior Kubernetes architects.
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row">
