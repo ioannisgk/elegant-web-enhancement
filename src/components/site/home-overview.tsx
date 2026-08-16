@@ -122,9 +122,21 @@ export function PricingTeaser() {
     <section className="section-y border-b border-border bg-surface">
       <div className="container-page grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-3">
         {[
-          { label: "Platform", value: "€55,000", body: "Full three-cluster build, delivered in one week." },
-          { label: "Platform +", value: "€65,000", body: "Adds 30 days of dedicated post-handover support." },
-          { label: "Whitelabel & IP", value: "€750,000", body: "The complete source and the right to resell it." },
+          {
+            label: "Platform",
+            value: "€55,000",
+            body: "Turnkey deployment on your own physical or virtual servers, completed in one week.",
+          },
+          {
+            label: "Platform +",
+            value: "€65,000",
+            body: "Includes everything in the base engagement plan, plus 30 days of dedicated support.",
+          },
+          {
+            label: "Whitelabel & IP",
+            value: "€750,000",
+            body: "Full source code delivery. You can resell to clients, train teams or run managed services.",
+          },
         ].map((tier) => (
           <div key={tier.label} className="bg-surface p-8">
             <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">{tier.label}</p>
