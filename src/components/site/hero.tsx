@@ -30,7 +30,7 @@ const clusters = [
   {
     icon: HardDrive,
     name: "HA storage layer",
-    detail: "Rook · Ceph · OSDs · RBD · CephFS · S3",
+    detail: "Rook · Ceph · RBD · CephFS · S3",
     nodes: "6 nodes",
   },
 ];
