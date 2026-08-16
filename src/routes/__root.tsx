@@ -8,6 +8,7 @@ import { ContactProvider } from "@/components/site/contact";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { PreloaderProvider } from "@/components/site/preloader";
+import { BackToTop } from "@/components/site/back-to-top";
 
 function NotFoundComponent() {
   return (
