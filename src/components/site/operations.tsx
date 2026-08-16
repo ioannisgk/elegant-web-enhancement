@@ -72,7 +72,7 @@ export function Operations() {
       <section className="section-y border-b border-border bg-surface">
         <div className="container-page space-y-14">
           <SectionHeading
-            eyebrow="Day 07 · Proof"
+            eyebrow="Day 7 · Proof"
             title={
               <>
                 High availability, <span className="text-brand">demonstrated live</span>
