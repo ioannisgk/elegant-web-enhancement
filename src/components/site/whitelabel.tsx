@@ -59,13 +59,20 @@ export function Whitelabel() {
           eyebrow="What you receive"
           title={
             <>
-              Five ways the licence <span className="text-gold">pays for itself</span>
+              Ways the licence <span className="text-gold">pays for itself</span>
             </>
           }
           description="The whitelabel tier isn't a bigger deployment — it's a different purchase. Instead of KubeSailor being built once for your infrastructure, you receive the complete source and the knowledge to run it yourself, indefinitely, for as many clients as you choose."
         />
 
         <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
+          {topItems.map((item) => (
+            <article key={item.title} className="flex flex-col gap-3 bg-surface p-8">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gold">{item.label}</span>
+              <h3 className="text-lg font-semibold">{item.title}</h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+            </article>
+          ))}
           {items.map((item) => (
             <article key={item.title} className="flex flex-col gap-3 bg-surface p-8">
               <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gold">{item.label}</span>
