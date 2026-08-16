@@ -21,7 +21,7 @@ const pillars = [
   {
     icon: ShieldCheck,
     title: "Sovereign and yours to keep",
-    body: "Your data never leaves your hardware. You receive the repositories, automation scripts and credentials — no licences, no per-node fees, no vendor lock-in.",
+    body: "Your data never leaves your hardware. You receive the repositories, automation scripts and credentials — no licences, no per-node fees, no vendor lock-in, with full control.",
     to: "/pricing" as const,
     cta: "Review pricing",
   },
