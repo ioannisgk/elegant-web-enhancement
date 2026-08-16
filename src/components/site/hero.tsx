@@ -4,6 +4,18 @@ import { PreloaderLink } from "./preloader";
 
 const clusters = [
   {
+    icon: Server,
+    name: "LB cluster",
+    detail: "HAProxy · Keepalived",
+    nodes: "3 nodes",
+  },
+  {
+    icon: Server,
+    name: "DNS cluster",
+    detail: "Bind9 · VRRP",
+    nodes: "3 nodes",
+  },
+  {
     icon: ShieldCheck,
     name: "Admin & control",
     detail: "Prometheus · Grafana · Tempo · Harbor",
@@ -20,6 +32,12 @@ const clusters = [
     name: "Rook-Ceph storage",
     detail: "NVMe OSDs · RBD · CephFS · S3",
     nodes: "6 nodes",
+  },
+  {
+    icon: Server,
+    name: "GitLab server",
+    detail: "Git · GitOps · Backup · Restore",
+    nodes: "1 node",
   },
 ];
 
