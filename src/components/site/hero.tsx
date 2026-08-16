@@ -108,7 +108,7 @@ export function Hero() {
 
             <div className="mt-2 grid gap-2 border-t border-border pt-4 text-sm text-muted-foreground">
               {[
-                "3× HA purpose-built clusters",
+                "5× HA purpose-built clusters",
                 "HA storage and full observability",
                 "Everything delivered preconfigured",
               ].map((item) => (
