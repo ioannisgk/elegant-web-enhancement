@@ -38,8 +38,9 @@ export function SiteFooter() {
               </span>
             </div>
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-              A multi-cluster private cloud platform for teams building on bare metal, with full data sovereignty and
-              high availability by default.
+              KubeSailor is a multi-cluster private cloud platform — based on Kubernetes, with dedicated LB, DNS and
+              storage clusters, full observability and GitOps automation — engineered, deployed and handed over by
+              senior Kubernetes architects.
             </p>
           </div>
 
@@ -65,7 +66,8 @@ export function SiteFooter() {
               Start a project
             </h3>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Discovery calls are run by the engineers who deliver the build.
+              Discovery calls are run by the engineers who deliver the build. If something isn't covered here, a senior
+              engineer will answer it directly on the call.
             </p>
             <button
               onClick={() => open("Discovery call")}
