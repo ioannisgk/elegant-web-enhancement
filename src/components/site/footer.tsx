@@ -1,4 +1,4 @@
-import { Anchor } from "lucide-react";
+import { Anchor, ArrowUpRight } from "lucide-react";
 import { useContact } from "./contact";
 import { PreloaderLink } from "./preloader";
 
