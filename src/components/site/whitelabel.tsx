@@ -28,7 +28,7 @@ const items = [
   },
   {
     label: "Complete curriculum base",
-    title: "Launch training programmes",
+    title: "Launch your training programmes",
     body: "Turn the workshop content into live cohorts, recorded courses or certification tracks. HA networking, GitOps, storage and observability is a genuine curriculum, for your clients.",
   },
   {
