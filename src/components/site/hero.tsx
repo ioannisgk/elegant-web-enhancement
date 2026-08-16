@@ -6,7 +6,7 @@ const clusters = [
   {
     icon: ShieldCheck,
     name: "Admin & control",
-    detail: "Prometheus · Grafana · Thanos · Harbor",
+    detail: "Prometheus · Grafana · Tempo · Harbor",
     nodes: "7 nodes",
   },
   {
@@ -85,7 +85,7 @@ export function Hero() {
                 <span className="text-sm font-semibold">Private cloud platform</span>
               </div>
               <span className="hidden truncate font-mono text-xs text-muted-foreground sm:inline">
-                istio-ambient · active
+                27 nodes recommended
               </span>
             </div>
 
