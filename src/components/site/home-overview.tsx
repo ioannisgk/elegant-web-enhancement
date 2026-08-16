@@ -99,7 +99,7 @@ export function DeliveryStrip() {
         <div className="space-y-px overflow-hidden rounded-2xl border border-border bg-border">
           {phases.map((phase) => (
             <div key={phase.range} className="bg-surface p-7 sm:flex sm:gap-8">
-              <p className="font-mono text-sm text-brand sm:w-28 sm:shrink-0 sm:pt-1">{phase.range}</p>
+              <p className="font-mono text-sm font-semibold text-brand sm:w-28 sm:shrink-0 sm:pt-1">{phase.range}</p>
               <div className="mt-2 space-y-1.5 sm:mt-0">
                 <h3 className="text-base font-semibold">{phase.title}</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">{phase.body}</p>
