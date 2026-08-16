@@ -65,8 +65,7 @@ export function SiteFooter() {
               Start a project
             </h3>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Discovery calls are run by the engineers who deliver the build. A senior engineer will answer all your
-              questions.
+              Discovery calls are run by the engineers who deliver the build. We are ready to answer all your questions.
             </p>
             <button
               onClick={() => open("Discovery call")}
