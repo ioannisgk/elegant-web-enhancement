@@ -5,7 +5,7 @@ import { PreloaderLink } from "./preloader";
 const clusters = [
   {
     icon: Server,
-    name: "Load Balancers",
+    name: "Load balancers",
     detail: "HAProxy · Keepalived",
     nodes: "3 nodes",
   },
