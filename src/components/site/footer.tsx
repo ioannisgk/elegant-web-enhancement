@@ -88,9 +88,10 @@ export function SiteFooter() {
               href="https://www.linkedin.com/in/ioannisgko"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground underline-offset-2 transition hover:text-foreground hover:underline"
+              className="inline-flex items-center gap-1 text-muted-foreground underline-offset-2 transition hover:text-foreground hover:underline group"
             >
               Ioannis Gkourtzounis
+              <ArrowUpRight className="h-2.5 w-2.5 opacity-40 transition-opacity group-hover:opacity-100" />
             </a>
           </p>
         </div>
