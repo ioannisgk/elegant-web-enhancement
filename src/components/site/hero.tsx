@@ -6,20 +6,20 @@ const clusters = [
   {
     icon: ShieldCheck,
     name: "Admin & control",
-    detail: "GitLab CE · ArgoCD · Harbor · Thanos",
-    nodes: "4 nodes",
+    detail: "Prometheus · Grafana · Thanos · Harbor",
+    nodes: "7 nodes",
   },
   {
     icon: Server,
     name: "Workload compute",
-    detail: "Istio Ambient · HAProxy + Keepalived",
-    nodes: "4 nodes",
+    detail: "Istio Ambient · Argo CD · Jenkins",
+    nodes: "7 nodes",
   },
   {
     icon: HardDrive,
     name: "Rook-Ceph storage",
     detail: "NVMe OSDs · RBD · CephFS · S3",
-    nodes: "4 nodes",
+    nodes: "6 nodes",
   },
 ];
 
