@@ -96,9 +96,7 @@ export function Hero() {
                 <span className="h-2 w-2 rounded-full bg-success" />
                 <span className="text-sm font-semibold">Private cloud platform</span>
               </div>
-              <span className="hidden truncate font-mono text-xs text-muted-foreground sm:inline">
-                27 nodes recommended
-              </span>
+              <span className="hidden truncate font-mono text-xs text-muted-foreground sm:inline">Multi-cloud</span>
             </div>
 
             <div className="divide-y divide-border">
