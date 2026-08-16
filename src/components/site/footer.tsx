@@ -38,9 +38,8 @@ export function SiteFooter() {
               </span>
             </div>
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-              KubeSailor is a multi-cluster private cloud platform — based on Kubernetes, with dedicated LB, DNS and
-              storage clusters, full observability and GitOps automation — engineered, deployed and handed over by
-              senior Kubernetes architects.
+              KubeSailor is a multi-cluster private cloud platform engineered, deployed and handed over by senior
+              Kubernetes architects.
             </p>
           </div>
 
