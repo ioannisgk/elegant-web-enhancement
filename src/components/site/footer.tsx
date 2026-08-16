@@ -1,6 +1,6 @@
 import { Anchor } from "lucide-react";
-import { Link } from "@tanstack/react-router";
 import { useContact } from "./contact";
+import { PreloaderLink } from "./preloader";
 
 const columns = [
   {
@@ -51,9 +51,13 @@ export function SiteFooter() {
               <ul className="space-y-2.5 text-sm">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.to} className="text-muted-foreground transition hover:text-foreground">
+                    <PreloaderLink
+                      to={link.to}
+                      samePageScrollTo=""
+                      className="text-muted-foreground transition hover:text-foreground"
+                    >
                       {link.label}
-                    </Link>
+                    </PreloaderLink>
                   </li>
                 ))}
               </ul>
