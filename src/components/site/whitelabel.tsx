@@ -6,7 +6,7 @@ const topItems = [
   {
     label: "Proven, not experimental",
     title: "Launch with a battle-tested architecture",
-    body: "You're not licensing an idea — you're licensing a build that already runs end to end. When you pitch a client, you're pointing at a real private cloud platform.",
+    body: "You're not licensing an idea — you're licensing a build that already runs end to end. When you pitch a client, you're pointing at a real multi-cluster private cloud platform.",
   },
   {
     label: "Skip the R&D investment",
