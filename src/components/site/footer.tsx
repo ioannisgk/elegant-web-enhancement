@@ -82,7 +82,17 @@ export function SiteFooter() {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-border pt-8 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} KubeSailor. All rights reserved.</p>
-          <p>CNCF-native · zero vendor lock-in · Ubuntu 24.04 LTS</p>
+          <p>
+            Created by{" "}
+            <a
+              href="https://www.linkedin.com/in/ioannisgko"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground underline-offset-2 transition hover:text-foreground hover:underline"
+            >
+              Ioannis Gkourtzounis
+            </a>
+          </p>
         </div>
       </div>
     </footer>
