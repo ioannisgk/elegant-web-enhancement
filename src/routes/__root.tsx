@@ -136,6 +136,7 @@ function RootComponent() {
             <Outlet />
           </main>
           <SiteFooter />
+          <BackToTop />
         </PreloaderProvider>
       </ContactProvider>
     </QueryClientProvider>
