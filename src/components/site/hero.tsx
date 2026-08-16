@@ -33,12 +33,6 @@ const clusters = [
     detail: "NVMe OSDs · RBD · CephFS · S3",
     nodes: "6 nodes",
   },
-  {
-    icon: Server,
-    name: "GitLab server",
-    detail: "Git · GitOps · Backup · Restore",
-    nodes: "1 node",
-  },
 ];
 
 const proof = [
