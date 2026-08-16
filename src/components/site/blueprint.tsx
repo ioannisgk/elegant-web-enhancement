@@ -77,7 +77,7 @@ export function Blueprint() {
 
         <div className="flex flex-col gap-6 rounded-2xl border border-border bg-ink p-8 text-ink-foreground lg:flex-row lg:items-center lg:justify-between lg:p-10">
           <div className="max-w-2xl space-y-3">
-            <span className="font-mono text-xs font-semibold text-gold">Day 07 · Handoff</span>
+            <span className="font-mono text-xs font-semibold text-gold">Day 7 · Handoff</span>
             <h3 className="text-2xl font-semibold">Demo application & HA failover drills</h3>
             <p className="leading-relaxed text-ink-foreground/70">
               We deploy a Spring MVC reference application, run failover drills across DNS, load balancer and control
