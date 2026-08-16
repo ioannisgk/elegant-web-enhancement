@@ -12,7 +12,7 @@ const clusters = [
   {
     icon: Server,
     name: "DNS cluster",
-    detail: "Bind9 · VRRP",
+    detail: "Bind9 · HAProxy · Keepalived",
     nodes: "3 nodes",
   },
   {
