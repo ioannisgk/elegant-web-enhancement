@@ -65,17 +65,17 @@ export function PlatformPillars() {
 
 const phases = [
   {
-    range: "Days 01–02",
+    range: "Days 1–2",
     title: "Foundation",
     body: "Setup Ubuntu across every node, HA DNS and load balancers with Keepalived VIPs, then kubeadm control planes.",
   },
   {
-    range: "Days 03–05",
+    range: "Days 3–5",
     title: "Platform",
     body: "GitLab, ArgoCD, Rook-Ceph, Istio Ambient, Harbor and Jenkins deployed and reconciled through GitOps.",
   },
   {
-    range: "Days 06–07",
+    range: "Days 6–7",
     title: "Proof & handover",
     body: "Full observability stack, a live reference application, HA failover drills and the repositories signed over to you.",
   },
