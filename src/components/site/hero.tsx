@@ -1,6 +1,6 @@
 import { ArrowRight, ArrowDown, Check, ShieldCheck, Server, HardDrive } from "lucide-react";
-import { Link } from "@tanstack/react-router";
 import { ButtonLink } from "./primitives";
+import { PreloaderLink } from "./preloader";
 
 const clusters = [
   {
@@ -61,11 +61,11 @@ export function Hero() {
               >
                 Download the TCO audit <ArrowDown className="h-4 w-4" />
               </a>
-              <Link to="/delivery">
+              <PreloaderLink to="/architecture">
                 <ButtonLink variant="secondary" className="w-full sm:w-auto">
                   See the platform architecture
                 </ButtonLink>
-              </Link>
+              </PreloaderLink>
             </div>
 
             <dl className="grid gap-6 border-t border-border pt-8 sm:grid-cols-3">
