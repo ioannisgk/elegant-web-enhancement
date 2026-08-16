@@ -1,19 +1,23 @@
-Refresh homepage hero description
+# Change homepage hero CTA to "Download the TCO audit"
 
-Update the sub-headline paragraph in `src/components/site/hero.tsx` (currently line 51–54) so it highlights KubeSailor’s strongest benefits: sovereignty, the five-cluster architecture, Istio Ambient, Rook-Ceph, full observability, GitOps automation, and the one-week bare-metal handover.
+## Goal
+Replace the homepage hero's primary "Get your private cloud" button with a "Download the TCO audit" button that downloads the same PDF used in the Pricing page calculator, while preserving the button's existing blue primary styling.
 
-Current text:
-"KubeSailor is a multi-cluster private cloud platform — based on Kubernetes, Istio Ambient, Rook-Ceph storage and full GitOps automation — engineered, deployed and handed over by senior Kubernetes architects."
+## Changes
 
-Proposed replacement:
-"KubeSailor is a sovereign multi-cluster private cloud — Kubernetes, Istio Ambient, Rook-Ceph storage, full observability and GitOps automation — engineered and handed over on your bare metal in one week."
+1. **Update `src/components/site/hero.tsx`**
+   - Import `ArrowDown` from `lucide-react`.
+   - Replace the primary `ButtonLink` that calls `open("Discovery call")` with an `<a>` element:
+     - Text: "Download the TCO audit"
+     - Icon: `ArrowDown` (same as Pricing page)
+     - `href`: `/KubeSailor_Bare_Metal_vs_Hyperscaler_TCO_Study.pdf`
+     - Attributes: `download`, `target="_blank"`, `rel="noopener noreferrer"`
+     - Classes: keep the exact primary `ButtonLink` look (`bg-brand text-primary-foreground hover:bg-brand-strong shadow-soft`, rounded-xl, etc.)
+   - Remove the now-unused `useContact` import and hook call from the hero.
+   - Leave the secondary "See the delivery process" button unchanged.
 
-This keeps the same em-dash structure and similar length (~200 characters) while explicitly surfacing:
-- Sovereignty / on-your-own-hardware
-- Full observability stack (Prometheus, Thanos, Loki, Tempo, Grafana Alloy)
-- The one-week delivery promise
-- The core technology stack
-
-No styling, layout, or component changes — only the paragraph text.
-
-Verification: run the TypeScript typecheck after editing.
+## Verification
+- Run TypeScript typecheck.
+- Confirm the homepage hero shows "Download the TCO audit" with a downward arrow.
+- Confirm the button still has the blue primary background.
+- Confirm clicking it triggers a download of the PDF.
