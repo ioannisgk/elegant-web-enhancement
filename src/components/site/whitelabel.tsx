@@ -2,6 +2,24 @@ import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "./primitives";
 import { useContact } from "./contact";
 
+const topItems = [
+  {
+    label: "Proven, not experimental",
+    title: "Launch with a battle-tested architecture",
+    body: "You're not licensing an idea — you're licensing a build that already runs end to end: HA networking, GitOps, service mesh and a working CI/CD pipeline validated with a live demo deployment. When you pitch a client, you're pointing at something real, not a concept.",
+  },
+  {
+    label: "Skip the R&D investment",
+    title: "Avoid months of platform engineering",
+    body: "Building a system like this from scratch is a multi-month effort even for an experienced team, with real technical risk along the way. The licence hands you the finished result instead of the build — no trial and error, no wrong turns, no wasted engineering time.",
+  },
+  {
+    label: "A business asset, not an expense",
+    title: "Build equity you can grow — or sell",
+    body: "Unlike a service contract, licensed IP sits on your balance sheet as an asset, not a recurring cost. It can become a genuine part of your company's own valuation story, and later, part of a fundraising or acquisition conversation.",
+  },
+];
+
 const items = [
   {
     label: "Resell as your own",
@@ -41,13 +59,20 @@ export function Whitelabel() {
           eyebrow="What you receive"
           title={
             <>
-              Five ways the licence <span className="text-gold">pays for itself</span>
+              Ways the licence <span className="text-gold">pays for itself</span>
             </>
           }
           description="The whitelabel tier isn't a bigger deployment — it's a different purchase. Instead of KubeSailor being built once for your infrastructure, you receive the complete source and the knowledge to run it yourself, indefinitely, for as many clients as you choose."
         />
 
         <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
+          {topItems.map((item) => (
+            <article key={item.title} className="flex flex-col gap-3 bg-surface p-8">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gold">{item.label}</span>
+              <h3 className="text-lg font-semibold">{item.title}</h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+            </article>
+          ))}
           {items.map((item) => (
             <article key={item.title} className="flex flex-col gap-3 bg-surface p-8">
               <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gold">{item.label}</span>
