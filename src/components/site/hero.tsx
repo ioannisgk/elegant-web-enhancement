@@ -1,7 +1,6 @@
-import { ArrowRight, Check, ShieldCheck, Server, HardDrive } from "lucide-react";
+import { ArrowRight, ArrowDown, Check, ShieldCheck, Server, HardDrive } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { ButtonLink } from "./primitives";
-import { useContact } from "./contact";
 
 const clusters = [
   {
@@ -31,7 +30,6 @@ const proof = [
 ];
 
 export function Hero() {
-  const { open } = useContact();
 
   return (
     <section
@@ -55,9 +53,15 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row">
-              <ButtonLink onClick={() => open("Discovery call")}>
-                Get your private cloud <ArrowRight className="h-4 w-4" />
-              </ButtonLink>
+              <a
+                href="/KubeSailor_Bare_Metal_vs_Hyperscaler_TCO_Study.pdf"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition hover:bg-brand-strong focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand/20"
+              >
+                Download the TCO audit <ArrowDown className="h-4 w-4" />
+              </a>
               <Link to="/delivery">
                 <ButtonLink variant="secondary" className="w-full sm:w-auto">
                   See the delivery process
