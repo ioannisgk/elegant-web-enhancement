@@ -2,6 +2,24 @@ import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "./primitives";
 import { useContact } from "./contact";
 
+const topItems = [
+  {
+    label: "Proven, not experimental",
+    title: "Launch with a battle-tested architecture",
+    body: "You're not licensing an idea — you're licensing a build that already runs end to end: HA networking, GitOps, service mesh and a working CI/CD pipeline validated with a live demo deployment. When you pitch a client, you're pointing at something real, not a concept.",
+  },
+  {
+    label: "Skip the R&D investment",
+    title: "Avoid months of platform engineering",
+    body: "Building a system like this from scratch is a multi-month effort even for an experienced team, with real technical risk along the way. The licence hands you the finished result instead of the build — no trial and error, no wrong turns, no wasted engineering time.",
+  },
+  {
+    label: "A business asset, not an expense",
+    title: "Build equity you can grow — or sell",
+    body: "Unlike a service contract, licensed IP sits on your balance sheet as an asset, not a recurring cost. It can become a genuine part of your company's own valuation story, and later, part of a fundraising or acquisition conversation.",
+  },
+];
+
 const items = [
   {
     label: "Resell as your own",
