@@ -67,17 +67,17 @@ const phases = [
   {
     range: "Days 1–2",
     title: "Foundation",
-    body: "Setup Ubuntu across every node, HA DNS and load balancers with Keepalived VIPs, then kubeadm control planes.",
+    body: "Provision every node with Ubuntu 24.04 LTS, static IPs and synced time, then deploy the Bind9 DNS cluster, HAProxy load balancers with VRRP failover, and bootstrap the Admin, Workload and Storage Kubernetes clusters with kubeadm.",
   },
   {
     range: "Days 3–5",
     title: "Platform",
-    body: "GitLab, ArgoCD, Rook-Ceph, Istio Ambient, Harbor and Jenkins deployed and reconciled through GitOps.",
+    body: "Stand up GitLab CE with automated backups, deploy Argo CD on every cluster, build the Rook-Ceph storage cluster, enable Istio Ambient mTLS, install Harbor with robot accounts, and configure Jenkins with Cosign-signed CI/CD pipelines.",
   },
   {
     range: "Days 6–7",
     title: "Proof & handover",
-    body: "Full observability stack, a live reference application, HA failover drills and the repositories signed over to you.",
+    body: "Roll out Prometheus with Thanos sidecars, Grafana Alloy, Loki and Tempo across every cluster. We deploy the Spring MVC demo application, run DNS, load balancer and control plane failover drills, then hand over the GitOps repositories.",
   },
 ];
 
