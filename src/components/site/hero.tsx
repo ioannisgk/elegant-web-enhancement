@@ -107,12 +107,14 @@ export function Hero() {
             </div>
 
             <div className="mt-2 grid gap-2 border-t border-border pt-4 text-sm text-muted-foreground">
-              {["No egress billing", "No control plane fees", "Full source of every manifest"].map((item) => (
-                <p key={item} className="flex items-center gap-2">
-                  <Check className="h-4 w-4 shrink-0 text-success" />
-                  {item}
-                </p>
-              ))}
+              {["HA purpose-built clusters", "HA storage and full observability", "Everything preconfigured"].map(
+                (item) => (
+                  <p key={item} className="flex items-center gap-2">
+                    <Check className="h-4 w-4 shrink-0 text-success" />
+                    {item}
+                  </p>
+                ),
+              )}
             </div>
           </div>
         </div>
