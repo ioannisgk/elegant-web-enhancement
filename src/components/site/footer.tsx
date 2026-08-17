@@ -68,12 +68,13 @@ export function SiteFooter() {
             <p className="text-sm leading-relaxed text-muted-foreground">
               Discovery calls are run by the engineers who deliver the build. We are ready to answer all your questions.
             </p>
-            <button
-              onClick={() => open("Discovery call")}
-              className="w-full cursor-pointer rounded-xl bg-ink px-4 py-3 text-sm font-semibold text-ink-foreground transition hover:bg-ink/90"
+            <a
+              href="mailto:info@kubesailor.com"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground underline-offset-2 transition hover:text-foreground hover:underline"
             >
-              Book a call
-            </button>
+              <Mail className="h-3.5 w-3.5" />
+              info@kubesailor.com
+            </a>
           </div>
         </div>
 
