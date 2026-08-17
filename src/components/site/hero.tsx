@@ -1,16 +1,16 @@
-import { ArrowRight, ArrowDown, Check, ShieldCheck, Server, HardDrive } from "lucide-react";
+import { ArrowRight, ArrowDown, Check, ShieldCheck, Server, HardDrive, Network, Globe } from "lucide-react";
 import { ButtonLink } from "./primitives";
 import { PreloaderLink } from "./preloader";
 
 const clusters = [
   {
-    icon: Server,
+    icon: Network,
     name: "Load balancers",
     detail: "HAProxy · Keepalived",
     nodes: "3 nodes",
   },
   {
-    icon: Server,
+    icon: Globe,
     name: "DNS with failover",
     detail: "Bind9 · HAProxy · Keepalived",
     nodes: "3 nodes",
