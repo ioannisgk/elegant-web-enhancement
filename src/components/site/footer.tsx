@@ -1,5 +1,4 @@
-import { Anchor, ArrowUpRight } from "lucide-react";
-import { useContact } from "./contact";
+import { Anchor, ArrowUpRight, Mail } from "lucide-react";
 import { PreloaderLink } from "./preloader";
 
 const columns = [
