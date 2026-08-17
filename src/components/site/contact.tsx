@@ -11,7 +11,7 @@ import {
 
 // Public, publishable Web3Forms access key — safe to ship in client code.
 // Delivers only to the verified address registered at web3forms.com.
-const WEB3FORMS_ACCESS_KEY = "REPLACE_WITH_YOUR_WEB3FORMS_ACCESS_KEY";
+const WEB3FORMS_ACCESS_KEY = "752e6976-d33a-4b7e-affc-ee40c16364b0";
 const CONTACT_EMAIL = "info@kubesailor.com";
 
 const contactSchema = z.object({
