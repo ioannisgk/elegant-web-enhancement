@@ -10,7 +10,7 @@ const clusters = [
     nodes: "3 nodes",
   },
   {
-    icon: Server,
+    icon: Globe,
     name: "DNS with failover",
     detail: "Bind9 · HAProxy · Keepalived",
     nodes: "3 nodes",
