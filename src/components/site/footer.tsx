@@ -21,8 +21,6 @@ const columns = [
 ] as const;
 
 export function SiteFooter() {
-  const { open } = useContact();
-
   return (
     <footer className="border-t border-border bg-surface">
       <div className="container-page py-16">
