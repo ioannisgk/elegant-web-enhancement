@@ -1,4 +1,4 @@
-import { Anchor, ArrowUpRight } from "lucide-react";
+import { Anchor, ArrowUpRight, Mail } from "lucide-react";
 import { PreloaderLink } from "./preloader";
 
 const columns = [
@@ -70,8 +70,9 @@ export function SiteFooter() {
             </p>
             <a
               href="mailto:info@kubesailor.com"
-              className="inline-flex items-center justify-center rounded-xl bg-ink px-6 py-3 text-sm font-semibold text-ink-foreground shadow-soft transition-all duration-200 hover:bg-ink/90 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground underline-offset-2 transition hover:text-foreground hover:underline"
             >
+              <Mail className="h-3.5 w-3.5" />
               info@kubesailor.com
             </a>
           </div>
