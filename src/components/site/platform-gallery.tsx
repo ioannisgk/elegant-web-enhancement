@@ -33,9 +33,10 @@ const categories: Category[] = [
       },
       {
         src: "/screenshots/Gitlab-02.webp",
-        title: "GitLab — merge request workflow",
-        description: "Reviewed, auditable changes with pipelines gating every merge to main.",
-        alt: "GitLab merge request view with pipeline status",
+        title: "GitLab — the cluster, described in Git",
+        description:
+          "One repository per cluster holding Argo CD, Istio, Harbor, Rook-Ceph, monitoring, logging and tracing manifests — the complete, auditable desired state.",
+        alt: "GitLab admin-cluster repository listing argocd, harbor, istio-mesh, monitoring, rook-ceph and tracing directories",
       },
       {
         src: "/screenshots/Argo-CD-01.webp",
@@ -60,15 +61,17 @@ const categories: Category[] = [
     shots: [
       {
         src: "/screenshots/Jenkins-01.webp",
-        title: "Jenkins — pipeline overview",
-        description: "Build jobs running on Kubernetes agents inside the admin cluster.",
-        alt: "Jenkins dashboard listing build pipelines and their status",
+        title: "Jenkins — build pipeline, commit to cluster",
+        description:
+          "Twelve stages from Git checkout through test, SAST/SCA scanning, image build, Trivy scan, signed push to Harbor and an Argo CD sync trigger.",
+        alt: "Jenkins stage view of the demo-app-pipeline-cicd job showing build, scan, push to Harbor and Argo CD sync stages",
       },
       {
         src: "/screenshots/Jenkins-02.webp",
-        title: "Jenkins — stage view",
-        description: "Per-stage timing for checkout, build, test, scan and image push.",
-        alt: "Jenkins pipeline stage view with build stages and durations",
+        title: "Jenkins — controlled release pipeline",
+        description:
+          "Fetches available Harbor tags, pauses for an operator to pick one, then writes the manifest and triggers Argo CD — a promotion in under three minutes.",
+        alt: "Jenkins deploy pipeline stage view with fetch image tags, select image tag prompt and Argo CD sync stages",
       },
       {
         src: "/screenshots/Harbor-01.webp",
@@ -152,11 +155,15 @@ const categories: Category[] = [
   },
 ];
 
+const fullSrc = (src: string) => src.replace(/\.webp$/, "-full.webp");
+
 export function PlatformGallery() {
   const [lightbox, setLightbox] = useState<{ category: number; index: number } | null>(null);
+  const [zoomed, setZoomed] = useState(false);
 
   const close = useCallback(() => setLightbox(null), []);
   const step = useCallback((delta: number) => {
+    setZoomed(false);
     setLightbox((current) => {
       if (!current) return current;
       const shots = categories[current.category]?.shots ?? [];
@@ -243,10 +250,32 @@ export function PlatformGallery() {
           aria-modal="true"
           aria-label={active.title}
           className="fixed inset-0 z-[100] flex flex-col bg-ink/90 p-4 backdrop-blur-sm sm:p-8"
-          onClick={close}
+          onClick={() => {
+            setZoomed(false);
+            close();
+          }}
         >
-          <div className="relative m-auto w-full max-w-6xl space-y-4" onClick={(event) => event.stopPropagation()}>
-            <img src={active.src} alt={active.alt} className="w-full rounded-xl border border-white/10 shadow-2xl" />
+          <div
+            className="relative m-auto w-full max-w-[110rem] space-y-4"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div
+              className={`overflow-auto rounded-xl border border-white/10 shadow-2xl ${
+                zoomed ? "max-h-[78vh]" : ""
+              }`}
+            >
+              <img
+                key={active.src}
+                src={fullSrc(active.src)}
+                alt={active.alt}
+                onClick={() => setZoomed((value) => !value)}
+                className={
+                  zoomed
+                    ? "w-auto max-w-none cursor-zoom-out"
+                    : "max-h-[78vh] w-full cursor-zoom-in object-contain"
+                }
+              />
+            </div>
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="min-w-0">
                 <p className="font-display text-base font-semibold text-ink-foreground">{active.title}</p>
