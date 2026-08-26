@@ -159,7 +159,8 @@ export function PlatformGallery() {
   const step = useCallback((delta: number) => {
     setLightbox((current) => {
       if (!current) return current;
-      const shots = categories[current.category].shots;
+      const shots = categories[current.category]?.shots ?? [];
+      if (!shots.length) return current;
       const index = (current.index + delta + shots.length) % shots.length;
       return { ...current, index };
     });
@@ -181,7 +182,7 @@ export function PlatformGallery() {
     };
   }, [lightbox, close, step]);
 
-  const active = lightbox ? categories[lightbox.category].shots[lightbox.index] : null;
+  const active = lightbox ? categories[lightbox.category]?.shots[lightbox.index] ?? null : null;
 
   return (
     <>
@@ -270,7 +271,7 @@ export function PlatformGallery() {
                   <ChevronLeft className="h-5 w-5" />
                 </button>
                 <span className="font-mono text-xs text-ink-foreground/60">
-                  {lightbox.index + 1} / {categories[lightbox.category].shots.length}
+                  {lightbox.index + 1} / {categories[lightbox.category]?.shots.length ?? 0}
                 </span>
                 <button
                   type="button"
