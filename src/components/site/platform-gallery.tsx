@@ -250,10 +250,32 @@ export function PlatformGallery() {
           aria-modal="true"
           aria-label={active.title}
           className="fixed inset-0 z-[100] flex flex-col bg-ink/90 p-4 backdrop-blur-sm sm:p-8"
-          onClick={close}
+          onClick={() => {
+            setZoomed(false);
+            close();
+          }}
         >
-          <div className="relative m-auto w-full max-w-6xl space-y-4" onClick={(event) => event.stopPropagation()}>
-            <img src={active.src} alt={active.alt} className="w-full rounded-xl border border-white/10 shadow-2xl" />
+          <div
+            className="relative m-auto w-full max-w-[110rem] space-y-4"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div
+              className={`overflow-auto rounded-xl border border-white/10 shadow-2xl ${
+                zoomed ? "max-h-[78vh]" : ""
+              }`}
+            >
+              <img
+                key={active.src}
+                src={fullSrc(active.src)}
+                alt={active.alt}
+                onClick={() => setZoomed((value) => !value)}
+                className={
+                  zoomed
+                    ? "w-auto max-w-none cursor-zoom-out"
+                    : "max-h-[78vh] w-full cursor-zoom-in object-contain"
+                }
+              />
+            </div>
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="min-w-0">
                 <p className="font-display text-base font-semibold text-ink-foreground">{active.title}</p>
