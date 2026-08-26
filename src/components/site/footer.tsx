@@ -6,7 +6,7 @@ const columns = [
     title: "Platform",
     links: [
       { label: "Reference architecture", to: "/architecture" },
-      { label: "The Platform", to: "/platform" },
+      { label: "The Platform in action", to: "/platform" },
       { label: "Delivery & operations", to: "/delivery" },
     ],
   },
