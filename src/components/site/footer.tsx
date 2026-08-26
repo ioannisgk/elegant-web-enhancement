@@ -8,7 +8,6 @@ const columns = [
       { label: "Reference architecture", to: "/architecture" },
       { label: "The Platform", to: "/platform" },
       { label: "Delivery & operations", to: "/delivery" },
-      { label: "Home", to: "/" },
     ],
   },
   {
