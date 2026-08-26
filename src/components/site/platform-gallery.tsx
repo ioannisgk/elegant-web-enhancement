@@ -28,14 +28,13 @@ const categories: Category[] = [
       {
         src: "/screenshots/Gitlab-01.webp",
         title: "GitLab — platform repositories",
-        description: "Self-hosted source of truth for all cluster manifests and Helm charts.",
+        description: "One repository per cluster holds the complete, auditable desired state.",
         alt: "GitLab project overview showing KubeSailor platform repositories",
       },
       {
         src: "/screenshots/Gitlab-02.webp",
         title: "GitLab — the cluster, described in Git",
-        description:
-          "One repository per cluster holds the complete, auditable desired state.",
+        description: "Self-hosted source of truth for all cluster manifests and Helm charts.",
         alt: "GitLab admin-cluster repository listing argocd, harbor, istio-mesh, monitoring, rook-ceph and tracing directories",
       },
       {
@@ -62,15 +61,13 @@ const categories: Category[] = [
       {
         src: "/screenshots/Jenkins-01.webp",
         title: "Jenkins — build pipeline, commit to cluster",
-        description:
-          "Twelve stages from checkout to signed image push and Argo CD sync.",
+        description: "Twelve stages from checkout to signed image push and Argo CD sync.",
         alt: "Jenkins stage view of the demo-app-pipeline-cicd job showing build, scan, push to Harbor and Argo CD sync stages",
       },
       {
         src: "/screenshots/Jenkins-02.webp",
         title: "Jenkins — controlled release pipeline",
-        description:
-          "Operator picks a Harbor tag, writes the manifest and triggers Argo CD.",
+        description: "Operator picks a Harbor tag, writes the manifest and triggers Argo CD.",
         alt: "Jenkins deploy pipeline stage view with fetch image tags, select image tag prompt and Argo CD sync stages",
       },
       {
@@ -255,14 +252,9 @@ export function PlatformGallery() {
             close();
           }}
         >
-          <div
-            className="relative m-auto w-full max-w-[110rem] space-y-4"
-            onClick={(event) => event.stopPropagation()}
-          >
+          <div className="relative m-auto w-full max-w-[110rem] space-y-4" onClick={(event) => event.stopPropagation()}>
             <div
-              className={`overflow-auto rounded-xl border border-white/10 shadow-2xl ${
-                zoomed ? "max-h-[78vh]" : ""
-              }`}
+              className={`overflow-auto rounded-xl border border-white/10 shadow-2xl ${zoomed ? "max-h-[78vh]" : ""}`}
             >
               <img
                 key={active.src}
@@ -270,9 +262,7 @@ export function PlatformGallery() {
                 alt={active.alt}
                 onClick={() => setZoomed((value) => !value)}
                 className={
-                  zoomed
-                    ? "w-auto max-w-none cursor-default"
-                    : "max-h-[78vh] w-full cursor-default object-contain"
+                  zoomed ? "w-auto max-w-none cursor-default" : "max-h-[78vh] w-full cursor-default object-contain"
                 }
               />
             </div>
