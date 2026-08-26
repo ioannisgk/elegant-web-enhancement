@@ -33,9 +33,10 @@ const categories: Category[] = [
       },
       {
         src: "/screenshots/Gitlab-02.webp",
-        title: "GitLab — merge request workflow",
-        description: "Reviewed, auditable changes with pipelines gating every merge to main.",
-        alt: "GitLab merge request view with pipeline status",
+        title: "GitLab — the cluster, described in Git",
+        description:
+          "One repository per cluster holding Argo CD, Istio, Harbor, Rook-Ceph, monitoring, logging and tracing manifests — the complete, auditable desired state.",
+        alt: "GitLab admin-cluster repository listing argocd, harbor, istio-mesh, monitoring, rook-ceph and tracing directories",
       },
       {
         src: "/screenshots/Argo-CD-01.webp",
