@@ -28,7 +28,7 @@ const categories: Category[] = [
       {
         src: "/screenshots/Gitlab-01.webp",
         title: "GitLab — platform repositories",
-        description: "Self-hosted source of truth for cluster manifests, Helm charts and automation.",
+        description: "Self-hosted source of truth for all cluster manifests and Helm charts.",
         alt: "GitLab project overview showing KubeSailor platform repositories",
       },
       {
@@ -182,7 +182,7 @@ export function PlatformGallery() {
     };
   }, [lightbox, close, step]);
 
-  const active = lightbox ? categories[lightbox.category]?.shots[lightbox.index] ?? null : null;
+  const active = lightbox ? (categories[lightbox.category]?.shots[lightbox.index] ?? null) : null;
 
   return (
     <>
@@ -191,9 +191,7 @@ export function PlatformGallery() {
           key={category.id}
           id={category.id}
           className={
-            categoryIndex % 2 === 0
-              ? "section-y bg-background"
-              : "section-y border-y border-border bg-surface"
+            categoryIndex % 2 === 0 ? "section-y bg-background" : "section-y border-y border-border bg-surface"
           }
         >
           <div className="container-page space-y-10">
@@ -247,15 +245,8 @@ export function PlatformGallery() {
           className="fixed inset-0 z-[100] flex flex-col bg-ink/90 p-4 backdrop-blur-sm sm:p-8"
           onClick={close}
         >
-          <div
-            className="relative m-auto w-full max-w-6xl space-y-4"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <img
-              src={active.src}
-              alt={active.alt}
-              className="w-full rounded-xl border border-white/10 shadow-2xl"
-            />
+          <div className="relative m-auto w-full max-w-6xl space-y-4" onClick={(event) => event.stopPropagation()}>
+            <img src={active.src} alt={active.alt} className="w-full rounded-xl border border-white/10 shadow-2xl" />
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="min-w-0">
                 <p className="font-display text-base font-semibold text-ink-foreground">{active.title}</p>
