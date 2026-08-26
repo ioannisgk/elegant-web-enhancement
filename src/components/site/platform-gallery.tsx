@@ -155,11 +155,15 @@ const categories: Category[] = [
   },
 ];
 
+const fullSrc = (src: string) => src.replace(/\.webp$/, "-full.webp");
+
 export function PlatformGallery() {
   const [lightbox, setLightbox] = useState<{ category: number; index: number } | null>(null);
+  const [zoomed, setZoomed] = useState(false);
 
   const close = useCallback(() => setLightbox(null), []);
   const step = useCallback((delta: number) => {
+    setZoomed(false);
     setLightbox((current) => {
       if (!current) return current;
       const shots = categories[current.category]?.shots ?? [];
