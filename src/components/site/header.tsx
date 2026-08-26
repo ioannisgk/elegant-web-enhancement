@@ -7,6 +7,7 @@ import { PreloaderLink } from "./preloader";
 
 const links = [
   { to: "/architecture", label: "Architecture" },
+  { to: "/platform", label: "The Platform" },
   { to: "/delivery", label: "Delivery" },
   { to: "/pricing", label: "Pricing" },
   { to: "/whitelabel", label: "Whitelabel" },
