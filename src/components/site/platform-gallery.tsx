@@ -35,7 +35,7 @@ const categories: Category[] = [
         src: "/screenshots/Gitlab-02.webp",
         title: "GitLab — the cluster, described in Git",
         description:
-          "One repository per cluster holding Argo CD, Istio, Harbor, Rook-Ceph, monitoring, logging and tracing manifests — the complete, auditable desired state.",
+          "One repository per cluster holds the complete, auditable desired state.",
         alt: "GitLab admin-cluster repository listing argocd, harbor, istio-mesh, monitoring, rook-ceph and tracing directories",
       },
       {
