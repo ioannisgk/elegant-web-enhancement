@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArchitectureRouteImport } from './routes/architecture'
 import { Route as DeliveryRouteImport } from './routes/delivery'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as WhitelabelRouteImport } from './routes/whitelabel'
 
@@ -36,6 +37,11 @@ const FaqRoute = FaqRouteImport.update({
   path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlatformRoute = PlatformRouteImport.update({
+  id: '/platform',
+  path: '/platform',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/architecture': typeof ArchitectureRoute
   '/delivery': typeof DeliveryRoute
   '/faq': typeof FaqRoute
+  '/platform': typeof PlatformRoute
   '/pricing': typeof PricingRoute
   '/whitelabel': typeof WhitelabelRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/architecture': typeof ArchitectureRoute
   '/delivery': typeof DeliveryRoute
   '/faq': typeof FaqRoute
+  '/platform': typeof PlatformRoute
   '/pricing': typeof PricingRoute
   '/whitelabel': typeof WhitelabelRoute
 }
@@ -69,21 +77,36 @@ export interface FileRoutesById {
   '/architecture': typeof ArchitectureRoute
   '/delivery': typeof DeliveryRoute
   '/faq': typeof FaqRoute
+  '/platform': typeof PlatformRoute
   '/pricing': typeof PricingRoute
   '/whitelabel': typeof WhitelabelRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/architecture' | '/delivery' | '/faq' | '/pricing' | '/whitelabel'
+    | '/'
+    | '/architecture'
+    | '/delivery'
+    | '/faq'
+    | '/platform'
+    | '/pricing'
+    | '/whitelabel'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/architecture' | '/delivery' | '/faq' | '/pricing' | '/whitelabel'
+  to:
+    | '/'
+    | '/architecture'
+    | '/delivery'
+    | '/faq'
+    | '/platform'
+    | '/pricing'
+    | '/whitelabel'
   id:
     | '__root__'
     | '/'
     | '/architecture'
     | '/delivery'
     | '/faq'
+    | '/platform'
     | '/pricing'
     | '/whitelabel'
   fileRoutesById: FileRoutesById
@@ -93,6 +116,7 @@ export interface RootRouteChildren {
   ArchitectureRoute: typeof ArchitectureRoute
   DeliveryRoute: typeof DeliveryRoute
   FaqRoute: typeof FaqRoute
+  PlatformRoute: typeof PlatformRoute
   PricingRoute: typeof PricingRoute
   WhitelabelRoute: typeof WhitelabelRoute
 }
@@ -127,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/platform': {
+      id: '/platform'
+      path: '/platform'
+      fullPath: '/platform'
+      preLoaderRoute: typeof PlatformRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/pricing': {
       id: '/pricing'
       path: '/pricing'
@@ -149,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   ArchitectureRoute: ArchitectureRoute,
   DeliveryRoute: DeliveryRoute,
   FaqRoute: FaqRoute,
+  PlatformRoute: PlatformRoute,
   PricingRoute: PricingRoute,
   WhitelabelRoute: WhitelabelRoute,
 }
