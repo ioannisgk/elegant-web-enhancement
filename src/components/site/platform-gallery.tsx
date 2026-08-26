@@ -61,15 +61,17 @@ const categories: Category[] = [
     shots: [
       {
         src: "/screenshots/Jenkins-01.webp",
-        title: "Jenkins — pipeline overview",
-        description: "Build jobs running on Kubernetes agents inside the admin cluster.",
-        alt: "Jenkins dashboard listing build pipelines and their status",
+        title: "Jenkins — build pipeline, commit to cluster",
+        description:
+          "Twelve stages from Git checkout through test, SAST/SCA scanning, image build, Trivy scan, signed push to Harbor and an Argo CD sync trigger.",
+        alt: "Jenkins stage view of the demo-app-pipeline-cicd job showing build, scan, push to Harbor and Argo CD sync stages",
       },
       {
         src: "/screenshots/Jenkins-02.webp",
-        title: "Jenkins — stage view",
-        description: "Per-stage timing for checkout, build, test, scan and image push.",
-        alt: "Jenkins pipeline stage view with build stages and durations",
+        title: "Jenkins — controlled release pipeline",
+        description:
+          "Fetches available Harbor tags, pauses for an operator to pick one, then writes the manifest and triggers Argo CD — a promotion in under three minutes.",
+        alt: "Jenkins deploy pipeline stage view with fetch image tags, select image tag prompt and Argo CD sync stages",
       },
       {
         src: "/screenshots/Harbor-01.webp",
