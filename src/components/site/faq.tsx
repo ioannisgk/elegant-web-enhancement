@@ -1,7 +1,7 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { SectionHeading } from "./primitives";
 
-const faqs = [
+export const faqs = [
   {
     q: "What exactly do we get at the end of the engagement?",
     a: "A five-cluster sovereign private cloud running on your own hardware: an HA admin cluster, an HA workload cluster, a Rook-Ceph storage cluster, a HAProxy load balancer cluster and a Bind9 DNS cluster. All Kubernetes clusters include Istio Ambient service mesh and follow GitOps with Argo CD. You also receive every repository and manifest file.",
