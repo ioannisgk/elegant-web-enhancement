@@ -1,3 +1,4 @@
+import * as React from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { SectionHeading } from "./primitives";
 
@@ -37,6 +38,8 @@ export const faqs = [
 ];
 
 export function Faq() {
+  const [openItem, setOpenItem] = React.useState(faqs[0]!.q);
+
   return (
     <section id="faq" className="section-y border-b border-border bg-surface">
       <div className="container-page grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
@@ -47,7 +50,7 @@ export function Faq() {
           description="If something isn't covered here, a senior engineer will answer it directly on the call."
         />
 
-        <Accordion type="single" collapsible defaultValue={faqs[0]!.q} className="w-full">
+        <Accordion type="single" collapsible value={openItem} onValueChange={setOpenItem} className="w-full">
           {faqs.map((faq) => (
             <AccordionItem key={faq.q} value={faq.q} className="border-border">
               <AccordionTrigger className="text-left text-base font-medium hover:no-underline">
