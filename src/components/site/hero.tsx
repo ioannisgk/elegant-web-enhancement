@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowDown, Check, ShieldCheck, Server, HardDrive, Network, Globe } from "lucide-react";
+import { ArrowRight, ArrowDown, Check, ShieldCheck, Server, HardDrive, Network, Globe, Monitor } from "lucide-react";
 import { ButtonLink } from "./primitives";
 import { PreloaderLink } from "./preloader";
 
