@@ -47,7 +47,7 @@ export function Faq() {
           description="If something isn't covered here, a senior engineer will answer it directly on the call."
         />
 
-        <Accordion type="single" collapsible defaultValue={faqs[0].q} className="w-full">
+        <Accordion type="single" collapsible defaultValue={faqs[0]!.q} className="w-full">
           {faqs.map((faq) => (
             <AccordionItem key={faq.q} value={faq.q} className="border-border">
               <AccordionTrigger className="text-left text-base font-medium hover:no-underline">
