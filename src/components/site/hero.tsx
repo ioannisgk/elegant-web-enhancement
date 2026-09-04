@@ -75,7 +75,7 @@ export function Hero() {
               </a>
               <PreloaderLink to="/platform">
                 <ButtonLink variant="secondary" className="w-full sm:w-auto">
-                  See the Platform in action
+                  See the Platform in action <Monitor className="h-4 w-4" />
                 </ButtonLink>
               </PreloaderLink>
             </div>
