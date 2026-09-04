@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/primitives";
-import { Faq } from "@/components/site/faq";
+import { Faq, faqs } from "@/components/site/faq";
 import { Cta } from "@/components/site/cta";
 
 const title = "FAQ — KubeSailor Private Cloud Questions";
