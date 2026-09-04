@@ -1,7 +1,7 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { SectionHeading } from "./primitives";
 
-const faqs = [
+export const faqs = [
   {
     q: "What exactly do we get at the end of the engagement?",
     a: "A five-cluster sovereign private cloud running on your own hardware: an HA admin cluster, an HA workload cluster, a Rook-Ceph storage cluster, a HAProxy load balancer cluster and a Bind9 DNS cluster. All Kubernetes clusters include Istio Ambient service mesh and follow GitOps with Argo CD. You also receive every repository and manifest file.",
@@ -47,7 +47,7 @@ export function Faq() {
           description="If something isn't covered here, a senior engineer will answer it directly on the call."
         />
 
-        <Accordion type="single" collapsible className="w-full">
+        <Accordion type="single" collapsible defaultValue={faqs[0]!.q} className="w-full">
           {faqs.map((faq) => (
             <AccordionItem key={faq.q} value={faq.q} className="border-border">
               <AccordionTrigger className="text-left text-base font-medium hover:no-underline">

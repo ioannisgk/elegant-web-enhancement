@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/primitives";
-import { Faq } from "@/components/site/faq";
+import { Faq, faqs } from "@/components/site/faq";
 import { Cta } from "@/components/site/cta";
 
 const title = "FAQ — KubeSailor Private Cloud Questions";
@@ -16,6 +16,20 @@ export const Route = createFileRoute("/faq")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.q,
+            acceptedAnswer: { "@type": "Answer", text: faq.a },
+          })),
+        }),
+      },
     ],
   }),
   component: FaqPage,
