@@ -98,7 +98,7 @@ export function PlatformPreview() {
           eyebrow="The platform"
           title={
             <>
-              Real consoles, <span className="text-brand">running on bare metal</span>
+              Real platform, <span className="text-brand">running on bare metal</span>
             </>
           }
           description="Every KubeSailor delivery ships the same tooling you see here — GitOps, CI/CD, observability, storage and service mesh, all self-hosted."
