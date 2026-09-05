@@ -63,6 +63,72 @@ export function PlatformPillars() {
   );
 }
 
+const platformShots = [
+  {
+    src: "/screenshots/Grafana-01.webp",
+    title: "Grafana dashboards",
+    caption: "Cluster, node and workload metrics you own.",
+    alt: "Grafana Kubernetes cluster overview dashboard",
+  },
+  {
+    src: "/screenshots/Jenkins-01.webp",
+    title: "Jenkins pipelines",
+    caption: "Twelve stages from commit to signed image push.",
+    alt: "Jenkins build pipeline stage view",
+  },
+  {
+    src: "/screenshots/Argo-CD-01.webp",
+    title: "Argo CD GitOps",
+    caption: "Every cluster reconciled from Git.",
+    alt: "Argo CD application sync view",
+  },
+  {
+    src: "/screenshots/Rook-Ceph-01.webp",
+    title: "Rook-Ceph storage",
+    caption: "Replicated block, file and object storage.",
+    alt: "Rook-Ceph cluster health dashboard",
+  },
+];
+
+export function PlatformPreview() {
+  return (
+    <section className="section-y border-b border-border bg-surface">
+      <div className="container-page space-y-14">
+        <SectionHeading
+          eyebrow="The platform"
+          title={
+            <>
+              Real consoles, <span className="text-brand">running on bare metal</span>
+            </>
+          }
+          description="Every KubeSailor delivery ships the same tooling you see here — GitOps, CI/CD, observability, storage and service mesh, all self-hosted."
+        />
+
+        <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+          {platformShots.map((shot) => (
+            <figure key={shot.src} className="space-y-3 bg-surface p-5">
+              <img
+                src={shot.src}
+                alt={shot.alt}
+                loading="lazy"
+                className="aspect-[16/10] w-full rounded-lg border border-border object-cover"
+              />
+              <figcaption className="text-sm font-semibold">{shot.title}</figcaption>
+              <p className="text-xs leading-relaxed text-muted-foreground">{shot.caption}</p>
+            </figure>
+          ))}
+        </div>
+
+        <div className="text-center">
+          <PreloaderLink to="/platform" className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
+            See the platform running <ArrowRight className="h-4 w-4" />
+          </PreloaderLink>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const phases = [
   {
     range: "Days 1–2",
