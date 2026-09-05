@@ -32,7 +32,7 @@ function PlatformPage() {
           </>
         }
         description="These are real consoles from a delivered KubeSailor environment — source control, pipelines, registries, dashboards, storage and service mesh, all self-hosted on your own bare metal."
-        meta={["GitOps with Argo CD", "Secure supply chain", "Full observability", "HA storage & mesh"]}
+        meta={["Full observability", "HA storage & mesh", "Secure supply chain", "GitOps with Argo CD"]}
       />
       <PlatformGallery />
       <Cta />
