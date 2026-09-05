@@ -19,72 +19,6 @@ type Category = {
 
 const categories: Category[] = [
   {
-    id: "gitops",
-    eyebrow: "Source control & GitOps",
-    title: "Every change starts as a merge request",
-    intro:
-      "Self-hosted GitLab holds the platform and application repositories; Argo CD continuously reconciles each cluster against the declared state in Git.",
-    shots: [
-      {
-        src: "/screenshots/Gitlab-01.webp",
-        title: "GitLab — platform repositories",
-        description: "One repository per cluster holds the complete, auditable desired state.",
-        alt: "GitLab project overview showing KubeSailor platform repositories",
-      },
-      {
-        src: "/screenshots/Gitlab-02.webp",
-        title: "GitLab — the cluster, described in Git",
-        description: "Self-hosted source of truth for all cluster manifests and Helm charts.",
-        alt: "GitLab admin-cluster repository listing argocd, harbor, istio-mesh, monitoring, rook-ceph and tracing directories",
-      },
-      {
-        src: "/screenshots/Argo-CD-01.webp",
-        title: "Argo CD — application tree",
-        description: "Live sync status for every workload deployed across the clusters.",
-        alt: "Argo CD applications dashboard showing synced and healthy applications",
-      },
-      {
-        src: "/screenshots/Argo-CD-02.webp",
-        title: "Argo CD — resource topology",
-        description: "Drill into a single app to see its Kubernetes resources and health.",
-        alt: "Argo CD resource topology graph for a deployed application",
-      },
-    ],
-  },
-  {
-    id: "cicd",
-    eyebrow: "CI/CD & supply chain",
-    title: "Build, scan, sign, promote",
-    intro:
-      "Jenkins pipelines build and test images, Harbor stores them privately with vulnerability scanning — no external registry, no image ever leaves your hardware.",
-    shots: [
-      {
-        src: "/screenshots/Jenkins-01.webp",
-        title: "Jenkins — build pipeline, commit to cluster",
-        description: "Twelve stages from checkout to signed image push and Argo CD sync.",
-        alt: "Jenkins stage view of the demo-app-pipeline-cicd job showing build, scan, push to Harbor and Argo CD sync stages",
-      },
-      {
-        src: "/screenshots/Jenkins-02.webp",
-        title: "Jenkins — controlled release pipeline",
-        description: "Operator picks a Harbor tag, writes the manifest and triggers Argo CD.",
-        alt: "Jenkins deploy pipeline stage view with fetch image tags, select image tag prompt and Argo CD sync stages",
-      },
-      {
-        src: "/screenshots/Harbor-01.webp",
-        title: "Harbor — private registry",
-        description: "Project-scoped repositories with quotas and role-based access.",
-        alt: "Harbor registry projects list",
-      },
-      {
-        src: "/screenshots/Harbor-02.webp",
-        title: "Harbor — vulnerability scanning",
-        description: "Trivy scans every pushed tag before it is allowed into production.",
-        alt: "Harbor image vulnerability scan results",
-      },
-    ],
-  },
-  {
     id: "observability",
     eyebrow: "Observability",
     title: "Metrics, logs and traces you own",
@@ -147,6 +81,72 @@ const categories: Category[] = [
         title: "Kiali — workload detail",
         description: "Per-workload traffic, mTLS status and inbound/outbound metrics.",
         alt: "Kiali workload detail view with traffic metrics",
+      },
+    ],
+  },
+  {
+    id: "cicd",
+    eyebrow: "CI/CD & supply chain",
+    title: "Build, scan, sign, promote",
+    intro:
+      "Jenkins pipelines build and test images, Harbor stores them privately with vulnerability scanning — no external registry, no image ever leaves your hardware.",
+    shots: [
+      {
+        src: "/screenshots/Jenkins-01.webp",
+        title: "Jenkins — build pipeline, commit to cluster",
+        description: "Twelve stages from checkout to signed image push and Argo CD sync.",
+        alt: "Jenkins stage view of the demo-app-pipeline-cicd job showing build, scan, push to Harbor and Argo CD sync stages",
+      },
+      {
+        src: "/screenshots/Jenkins-02.webp",
+        title: "Jenkins — controlled release pipeline",
+        description: "Operator picks a Harbor tag, writes the manifest and triggers Argo CD.",
+        alt: "Jenkins deploy pipeline stage view with fetch image tags, select image tag prompt and Argo CD sync stages",
+      },
+      {
+        src: "/screenshots/Harbor-01.webp",
+        title: "Harbor — private registry",
+        description: "Project-scoped repositories with quotas and role-based access.",
+        alt: "Harbor registry projects list",
+      },
+      {
+        src: "/screenshots/Harbor-02.webp",
+        title: "Harbor — vulnerability scanning",
+        description: "Trivy scans every pushed tag before it is allowed into production.",
+        alt: "Harbor image vulnerability scan results",
+      },
+    ],
+  },
+  {
+    id: "gitops",
+    eyebrow: "Source control & GitOps",
+    title: "Every change starts as a merge request",
+    intro:
+      "Self-hosted GitLab holds the platform and application repositories; Argo CD continuously reconciles each cluster against the declared state in Git.",
+    shots: [
+      {
+        src: "/screenshots/Gitlab-01.webp",
+        title: "GitLab — platform repositories",
+        description: "One repository per cluster holds the complete, auditable desired state.",
+        alt: "GitLab project overview showing KubeSailor platform repositories",
+      },
+      {
+        src: "/screenshots/Gitlab-02.webp",
+        title: "GitLab — the cluster, described in Git",
+        description: "Self-hosted source of truth for all cluster manifests and Helm charts.",
+        alt: "GitLab admin-cluster repository listing argocd, harbor, istio-mesh, monitoring, rook-ceph and tracing directories",
+      },
+      {
+        src: "/screenshots/Argo-CD-01.webp",
+        title: "Argo CD — application tree",
+        description: "Live sync status for every workload deployed across the clusters.",
+        alt: "Argo CD applications dashboard showing synced and healthy applications",
+      },
+      {
+        src: "/screenshots/Argo-CD-02.webp",
+        title: "Argo CD — resource topology",
+        description: "Drill into a single app to see its Kubernetes resources and health.",
+        alt: "Argo CD resource topology graph for a deployed application",
       },
     ],
   },
