@@ -67,13 +67,13 @@ const platformShots = [
   {
     src: "/screenshots/Grafana-01.webp",
     title: "Grafana dashboards",
-    caption: "Cluster, node and workload metrics you own.",
+    caption: "Cluster, node and workload metrics.",
     alt: "Grafana Kubernetes cluster overview dashboard",
   },
   {
     src: "/screenshots/Jenkins-01.webp",
     title: "Jenkins pipelines",
-    caption: "Twelve stages from commit to signed image push.",
+    caption: "Stages from commit to signed image push.",
     alt: "Jenkins build pipeline stage view",
   },
   {
