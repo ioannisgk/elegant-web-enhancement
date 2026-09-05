@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Hero } from "@/components/site/hero";
 import {
   PlatformPillars,
+  PlatformPreview,
   DeliveryStrip,
   PricingTeaser,
 } from "@/components/site/home-overview";
