@@ -31,7 +31,7 @@ function PlatformPage() {
             The platform, as you will <span className="text-brand">actually see it</span>
           </>
         }
-        description="These are real consoles from a delivered KubeSailor environment — source control, pipelines, registries, dashboards, storage and service mesh, all self-hosted on your own bare metal."
+        description="These are real screenshots from a delivered KubeSailor environment — source control, pipelines, registries, dashboards, storage and service mesh, all self-hosted on your own bare metal."
         meta={["Full observability", "HA storage & mesh", "Secure supply chain", "GitOps with Argo CD"]}
       />
       <PlatformGallery />
