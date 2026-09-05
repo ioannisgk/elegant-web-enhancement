@@ -31,6 +31,7 @@ function Index() {
     <>
       <Hero />
       <PlatformPillars />
+      <PlatformPreview />
       <DeliveryStrip />
       <PricingTeaser />
       <Cta />
