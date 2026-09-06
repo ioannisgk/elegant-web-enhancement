@@ -123,6 +123,11 @@ export function Pricing() {
             </div>
           ))}
         </div>
+
+        <p className="mx-auto max-w-3xl text-center text-xs leading-relaxed text-muted-foreground">
+          *A €5,000 deposit is required to initiate the process and assign a dedicated Kubernetes engineer to your
+          project. All payments are final and non-refundable.
+        </p>
       </div>
     </section>
   );
