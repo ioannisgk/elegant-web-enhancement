@@ -24,7 +24,8 @@ const tiers = [
   {
     name: "Private Cloud Platform +",
     price: "€65,000",
-    note: "one-time · excl. VAT",
+    note: "one-time · excl. VAT*",
+
     tagline: "Includes everything in the base engagement plan, plus 30 days of dedicated support.",
     features: [
       "Everything in base package",
@@ -40,7 +41,7 @@ const tiers = [
   {
     name: "Whitelabel & IP licence",
     price: "€750,000",
-    note: "one-time · excl. VAT",
+    note: "one-time · excl. VAT*",
     tagline: "Full source code delivery. You can resell to clients, train teams or run managed services.",
     features: [
       "Full source code transfer",
