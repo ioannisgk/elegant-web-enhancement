@@ -7,7 +7,8 @@ const tiers = [
   {
     name: "Private Cloud Platform",
     price: "€55,000",
-    note: "one-time · excl. VAT",
+    note: "one-time · excl. VAT*",
+
     tagline: "Turnkey deployment on your own physical or virtual servers, completed in one week.",
     features: [
       "5-cluster sovereign platform",
