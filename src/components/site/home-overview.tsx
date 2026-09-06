@@ -194,7 +194,7 @@ export function PricingTeaser() {
               Transparent, fixed-scope <span className="text-brand">pricing</span>
             </>
           }
-          description="Three engagement tiers with predictable costs — no per-node fees, no vendor lock-in."
+          description="Three engagement tiers with predictable costs — no per-node fees, no usage metering, no vendor lock-in."
         />
 
         <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-3">
