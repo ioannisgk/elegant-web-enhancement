@@ -188,13 +188,13 @@ export function PricingTeaser() {
     <section className="section-y border-b border-border bg-surface">
       <div className="container-page space-y-14">
         <SectionHeading
-          eyebrow="Pricing"
+          eyebrow="Three-tier pricing"
           title={
             <>
               Transparent, fixed-scope <span className="text-brand">pricing</span>
             </>
           }
-          description="Three engagement tiers with predictable costs — no per-node fees, no usage metering, no vendor lock-in."
+          description="Three engagement tiers with predictable costs — no per-node fees, no vendor lock-in."
         />
 
         <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-3">
@@ -216,7 +216,9 @@ export function PricingTeaser() {
             },
           ].map((tier) => (
             <div key={tier.label} className="bg-surface p-8">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">{tier.label}</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                {tier.label}
+              </p>
               <p className="mt-3 font-display text-3xl font-semibold">{tier.value}</p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{tier.body}</p>
             </div>
