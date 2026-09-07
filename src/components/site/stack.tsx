@@ -15,7 +15,7 @@ const stack = [
 
 export function TechStack() {
   return (
-    <section id="stack" className="section-y border-b border-border bg-background">
+    <section id="stack" className="section-y border-b border-border bg-surface">
       <div className="container-page space-y-14">
         <SectionHeading
           eyebrow="Open standards"
