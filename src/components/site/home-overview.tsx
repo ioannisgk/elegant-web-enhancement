@@ -201,7 +201,7 @@ export function PricingTeaser() {
           {[
             {
               label: "Tier 1: Platform",
-              value: "Private Cloud Platform",
+              value: "",
               body: "Turnkey deployment on your own physical or virtual servers, completed in one week.",
             },
             {
