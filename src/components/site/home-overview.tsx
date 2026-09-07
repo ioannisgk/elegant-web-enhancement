@@ -201,7 +201,7 @@ export function PricingTeaser() {
           {[
             {
               label: "Platform",
-              value: "€55,000",
+              value: "",
               body: "Turnkey deployment on your own physical or virtual servers, completed in one week.",
             },
             {
