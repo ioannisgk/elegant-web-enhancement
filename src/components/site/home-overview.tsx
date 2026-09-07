@@ -29,7 +29,7 @@ const pillars = [
 
 export function PlatformPillars() {
   return (
-    <section className="section-y border-b border-border bg-surface">
+    <section className="section-y border-b border-border bg-background">
       <div className="container-page space-y-14">
         <SectionHeading
           eyebrow="What KubeSailor is"
