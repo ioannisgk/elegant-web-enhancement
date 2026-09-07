@@ -200,17 +200,17 @@ export function PricingTeaser() {
         <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-3">
           {[
             {
-              label: "Platform",
+              label: "Tier 1: Platform",
               value: "",
               body: "Turnkey deployment on your own physical or virtual servers, completed in one week.",
             },
             {
-              label: "Platform +",
+              label: "Tier 2: Platform +",
               value: "",
               body: "Includes everything in the base engagement plan, plus 30 days of dedicated support.",
             },
             {
-              label: "Whitelabel & IP",
+              label: "Tier 3: Whitelabel & IP",
               value: "",
               body: "Full source code delivery. You can resell to clients, train teams or run managed services.",
             },
