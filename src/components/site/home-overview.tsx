@@ -206,12 +206,12 @@ export function PricingTeaser() {
             },
             {
               label: "Platform +",
-              value: "€65,000",
+              value: "",
               body: "Includes everything in the base engagement plan, plus 30 days of dedicated support.",
             },
             {
               label: "Whitelabel & IP",
-              value: "€750,000",
+              value: "",
               body: "Full source code delivery. You can resell to clients, train teams or run managed services.",
             },
           ].map((tier) => (
