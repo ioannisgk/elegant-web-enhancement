@@ -91,7 +91,7 @@ const sections = [
 export function Terms() {
   return (
     <section className="section-y border-b border-border bg-background">
-      <div className="container-page max-w-3xl">
+      <div className="container-page max-w-4xl">
         <p className="font-mono text-xs text-muted-foreground">Last updated: {lastUpdated}</p>
         <div className="mt-10 space-y-10">
           {sections.map((section) => (
