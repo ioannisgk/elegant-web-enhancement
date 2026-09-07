@@ -15,6 +15,7 @@ import { Route as DeliveryRouteImport } from './routes/delivery'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as WhitelabelRouteImport } from './routes/whitelabel'
 
 const IndexRoute = IndexRouteImport.update({
@@ -47,6 +48,11 @@ const PricingRoute = PricingRouteImport.update({
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WhitelabelRoute = WhitelabelRouteImport.update({
   id: '/whitelabel',
   path: '/whitelabel',
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/platform': typeof PlatformRoute
   '/pricing': typeof PricingRoute
+  '/terms': typeof TermsRoute
   '/whitelabel': typeof WhitelabelRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +76,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/platform': typeof PlatformRoute
   '/pricing': typeof PricingRoute
+  '/terms': typeof TermsRoute
   '/whitelabel': typeof WhitelabelRoute
 }
 export interface FileRoutesById {
@@ -79,6 +87,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/platform': typeof PlatformRoute
   '/pricing': typeof PricingRoute
+  '/terms': typeof TermsRoute
   '/whitelabel': typeof WhitelabelRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +99,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/platform'
     | '/pricing'
+    | '/terms'
     | '/whitelabel'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/platform'
     | '/pricing'
+    | '/terms'
     | '/whitelabel'
   id:
     | '__root__'
@@ -108,6 +119,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/platform'
     | '/pricing'
+    | '/terms'
     | '/whitelabel'
   fileRoutesById: FileRoutesById
 }
@@ -118,6 +130,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   PlatformRoute: typeof PlatformRoute
   PricingRoute: typeof PricingRoute
+  TermsRoute: typeof TermsRoute
   WhitelabelRoute: typeof WhitelabelRoute
 }
 
@@ -165,6 +178,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/whitelabel': {
       id: '/whitelabel'
       path: '/whitelabel'
@@ -182,6 +202,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   PlatformRoute: PlatformRoute,
   PricingRoute: PricingRoute,
+  TermsRoute: TermsRoute,
   WhitelabelRoute: WhitelabelRoute,
 }
 export const routeTree = rootRouteImport
