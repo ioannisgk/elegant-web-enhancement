@@ -58,7 +58,7 @@ export function Hero() {
             </h1>
 
             <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
-              https://kubesailor.com/ KubeSailor is a multi-cluster private cloud platform — based on Kubernetes, with
+              https://kubesailor.com KubeSailor is a multi-cluster private cloud platform — based on Kubernetes, with
               dedicated LB, DNS and storage clusters, full observability and GitOps automation — engineered, deployed
               and handed over by senior Kubernetes architects.
             </p>
