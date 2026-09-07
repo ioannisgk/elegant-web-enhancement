@@ -52,7 +52,7 @@ export function Whitelabel() {
   const { open } = useContact();
 
   return (
-    <section id="whitelabel" className="section-y border-b border-border bg-background">
+    <section id="whitelabel" className="section-y border-b border-border bg-surface">
       <div className="container-page space-y-14">
         <SectionHeading
           tone="gold"
