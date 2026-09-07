@@ -1,10 +1,10 @@
-const lastUpdated = "7 September 2026";
+const lastUpdated = "September 2026";
 
 const sections = [
   {
     title: "1. Introduction and acceptance",
     body: [
-      "These Terms & Conditions govern all services provided by KubeSailor (\"KubeSailor\", \"we\", \"us\", \"our\") to the client (\"Client\", \"you\", \"your\"). By requesting a proposal, signing a contract, paying the initiation deposit, or using any KubeSailor deliverable, you accept these Terms in full.",
+      'These Terms & Conditions govern all services provided by KubeSailor ("KubeSailor", "we", "us", "our") to the client ("Client", "you", "your"). By requesting a proposal, signing a contract, paying the initiation deposit, or using any KubeSailor deliverable, you accept these Terms in full.',
       "These Terms apply together with the individual contract issued for your engagement. Where the individual contract and these Terms conflict, the individual contract prevails.",
     ],
   },
@@ -82,9 +82,7 @@ const sections = [
   },
   {
     title: "12. Contact",
-    body: [
-      "For any question about these Terms & Conditions, contact us at info@kubesailor.com.",
-    ],
+    body: ["For any question about these Terms & Conditions, contact us at info@kubesailor.com."],
   },
 ];
 
