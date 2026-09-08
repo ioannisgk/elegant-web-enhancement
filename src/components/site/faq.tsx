@@ -35,6 +35,14 @@ export const faqs = [
     q: "What is the difference between Private Cloud Platform and Whitelabel?",
     a: "Private Cloud Platform is a service: our team deploys KubeSailor onto your servers. Whitelabel (€750,000) is a transfer of intellectual property — the full source repositories, delivery automation, documentation and an engineering workshop, with 100% ownership and no royalties, so you can deploy for clients, run training or sell support under your own brand.",
   },
+  {
+    q: "Is a deposit required to start the engagement?",
+    a: "Yes. A €5,000 deposit is required to initiate the process, send the contract and assign a dedicated Kubernetes engineer to your project. The deposit is part of the total engagement fee, and all payments are final and non-refundable.",
+  },
+  {
+    q: "Where can I read the full Terms & Conditions?",
+    a: "The complete Terms & Conditions are published on our Terms & Conditions page. They cover the three engagement tiers, the €5,000 initiation deposit, non-refundable payments, intellectual property ownership per tier, the one-week delivery schedule, support scope, liability limits, confidentiality and governing law.",
+  },
 ];
 
 export function Faq() {
