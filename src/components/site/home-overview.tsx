@@ -201,17 +201,17 @@ export function PricingTeaser() {
           {[
             {
               label: "Tier 1: Platform",
-              value: "",
+              name: "Private Cloud Platform",
               body: "Turnkey deployment on your own physical or virtual servers, completed in one week.",
             },
             {
               label: "Tier 2: Platform +",
-              value: "",
+              name: "Private Cloud Platform +",
               body: "Includes everything in the base engagement plan, plus 30 days of dedicated support.",
             },
             {
               label: "Tier 3: Whitelabel & IP",
-              value: "",
+              name: "Whitelabel & IP licence",
               body: "Full source code delivery. You can resell to clients, train teams or run managed services.",
             },
           ].map((tier) => (
@@ -219,7 +219,7 @@ export function PricingTeaser() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                 {tier.label}
               </p>
-              <p className="mt-3 font-display text-3xl font-semibold">{tier.value}</p>
+              <h3 className="mt-3 text-xl font-semibold">{tier.name}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{tier.body}</p>
             </div>
           ))}
