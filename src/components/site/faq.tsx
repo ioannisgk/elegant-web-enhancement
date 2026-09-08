@@ -24,16 +24,16 @@ export const faqs = [
     a: "Day 7 is a live drill day. We move the DNS Keepalived VIP under load, fail the active HAProxy node to its standby, drain a Kubernetes control plane member while etcd keeps quorum, and remove a Ceph OSD node to show replication and rebalancing with persistent volumes still online.",
   },
   {
-    q: "What does the platform cost, and are there licence fees?",
-    a: "€55,000 for the one-week Private Cloud Platform delivery, €65,000 with 30 days of dedicated senior engineer support, and €750,000 for the whitelabel and IP licence. Every price is one-time and excludes VAT. There are no per-node charges, no subscriptions and no recurring licence fees — the entire stack is open source.",
-  },
-  {
     q: "How does this compare with AWS or a DIY bare-metal build?",
     a: "The Pricing page models it in full: production in one week instead of months, no egress billing, a complete observability stack with Prometheus, Thanos, Grafana Alloy, Loki and Tempo, and HA storage included. The interactive TCO calculator lets you enter your own vCPU, RAM, storage and bandwidth figures.",
   },
   {
     q: "What is the difference between Private Cloud Platform and Whitelabel?",
     a: "Private Cloud Platform is a service: our team deploys KubeSailor onto your servers. Whitelabel (€750,000) is a transfer of intellectual property — the full source repositories, delivery automation, documentation and an engineering workshop, with 100% ownership and no royalties, so you can deploy for clients, run training or sell support under your own brand.",
+  },
+  {
+    q: "What does the platform cost, and are there licence fees?",
+    a: "€55,000 for the one-week Private Cloud Platform delivery, €65,000 with 30 days of dedicated senior engineer support, and €750,000 for the whitelabel and IP licence. Every price is one-time and excludes VAT. There are no per-node charges, no subscriptions and no recurring licence fees — the entire stack is open source.",
   },
   {
     q: "Is a deposit required to start the engagement?",
