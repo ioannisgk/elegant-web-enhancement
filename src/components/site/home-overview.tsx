@@ -200,17 +200,17 @@ export function PricingTeaser() {
         <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-3">
           {[
             {
-              label: "Tier 1: Platform",
+              label: "1-week deployment",
               name: "Private Cloud Platform",
               body: "Turnkey deployment on your own physical or virtual servers, completed in one week.",
             },
             {
-              label: "Tier 2: Platform +",
+              label: "Most chosen by enterprise",
               name: "Private Cloud Platform +",
               body: "Includes everything in the base engagement plan, plus 30 days of dedicated support.",
             },
             {
-              label: "Tier 3: Whitelabel & IP",
+              label: "Business IP transfer",
               name: "Whitelabel & IP licence",
               body: "Full source code delivery. You can resell to clients, train teams or run managed services.",
             },
