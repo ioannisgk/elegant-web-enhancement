@@ -262,7 +262,7 @@ export function PlatformGallery() {
                 alt={active.alt}
                 onClick={() => setZoomed((value) => !value)}
                 className={
-                  zoomed ? "w-auto max-w-none cursor-default" : "max-h-[78vh] w-full cursor-default object-contain"
+                  zoomed ? "w-auto max-w-none cursor-zoom-out" : "max-h-[78vh] w-full cursor-zoom-in object-contain"
                 }
               />
             </div>
