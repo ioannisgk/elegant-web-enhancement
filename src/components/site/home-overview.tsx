@@ -219,7 +219,7 @@ export function PricingTeaser() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
                 {tier.label}
               </p>
-              <h3 className="mt-3 text-xl font-semibold">{tier.name}</h3>
+              <h3 className="mt-3 text-lg font-semibold">{tier.name}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{tier.body}</p>
             </div>
           ))}
