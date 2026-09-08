@@ -156,9 +156,11 @@ const fullSrc = (src: string) => src.replace(/\.webp$/, "-full.webp");
 
 export function PlatformGallery() {
   const [lightbox, setLightbox] = useState<{ category: number; index: number } | null>(null);
+  const [zoomed, setZoomed] = useState(false);
 
   const close = useCallback(() => setLightbox(null), []);
   const step = useCallback((delta: number) => {
+    setZoomed(false);
     setLightbox((current) => {
       if (!current) return current;
       const shots = categories[current.category]?.shots ?? [];
@@ -245,15 +247,23 @@ export function PlatformGallery() {
           aria-modal="true"
           aria-label={active.title}
           className="fixed inset-0 z-[100] flex flex-col bg-ink/90 p-4 backdrop-blur-sm sm:p-8"
-          onClick={close}
+          onClick={() => {
+            setZoomed(false);
+            close();
+          }}
         >
           <div className="relative m-auto w-full max-w-[110rem] space-y-4" onClick={(event) => event.stopPropagation()}>
-            <div className="overflow-auto rounded-xl border border-white/10 shadow-2xl">
+            <div
+              className={`overflow-auto rounded-xl border border-white/10 shadow-2xl ${zoomed ? "max-h-[78vh]" : ""}`}
+            >
               <img
                 key={active.src}
                 src={fullSrc(active.src)}
                 alt={active.alt}
-                className="max-h-[78vh] w-full cursor-default object-contain"
+                onClick={() => setZoomed((value) => !value)}
+                className={
+                  zoomed ? "w-auto max-w-none cursor-default" : "max-h-[78vh] w-full cursor-default object-contain"
+                }
               />
             </div>
             <div className="flex flex-wrap items-center justify-between gap-4">
