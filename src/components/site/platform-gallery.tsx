@@ -157,8 +157,17 @@ const fullSrc = (src: string) => src.replace(/\.webp$/, "-full.webp");
 export function PlatformGallery() {
   const [lightbox, setLightbox] = useState<{ category: number; index: number } | null>(null);
   const [zoomed, setZoomed] = useState(false);
+  const [dragging, setDragging] = useState(false);
 
-  const close = useCallback(() => setLightbox(null), []);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const anchorRef = useRef<{ x: number; y: number } | null>(null);
+  const dragRef = useRef<{ x: number; y: number; left: number; top: number; moved: boolean } | null>(null);
+
+  const close = useCallback(() => {
+    setZoomed(false);
+    setLightbox(null);
+  }, []);
+
   const step = useCallback((delta: number) => {
     setZoomed(false);
     setLightbox((current) => {
@@ -173,20 +182,77 @@ export function PlatformGallery() {
   useEffect(() => {
     if (!lightbox) return;
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") close();
       if (event.key === "ArrowRight") step(1);
       if (event.key === "ArrowLeft") step(-1);
     };
     window.addEventListener("keydown", onKey);
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = previous;
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightbox, step]);
+
+  // Keep the point the user clicked under the cursor after zooming in.
+  useLayoutEffect(() => {
+    const container = scrollRef.current;
+    const anchor = anchorRef.current;
+    if (!zoomed || !container || !anchor) return;
+    anchorRef.current = null;
+    const img = container.querySelector("img");
+    if (!img) return;
+    const apply = () => {
+      container.scrollLeft = anchor.x * container.scrollWidth - container.clientWidth / 2;
+      container.scrollTop = anchor.y * container.scrollHeight - container.clientHeight / 2;
     };
-  }, [lightbox, close, step]);
+    apply();
+    if (!(img as HTMLImageElement).complete) img.addEventListener("load", apply, { once: true });
+  }, [zoomed]);
 
   const active = lightbox ? (categories[lightbox.category]?.shots[lightbox.index] ?? null) : null;
+
+  const onImagePointerDown = (event: React.PointerEvent<HTMLImageElement>) => {
+    if (!zoomed || event.button !== 0) return;
+    const container = scrollRef.current;
+    if (!container) return;
+    event.preventDefault();
+    setDragging(true);
+    dragRef.current = {
+      x: event.clientX,
+      y: event.clientY,
+      left: container.scrollLeft,
+      top: container.scrollTop,
+      moved: false,
+    };
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+
+  const onImagePointerMove = (event: React.PointerEvent<HTMLImageElement>) => {
+    const state = dragRef.current;
+    const container = scrollRef.current;
+    if (!state || !container) return;
+    const dx = event.clientX - state.x;
+    const dy = event.clientY - state.y;
+    if (Math.abs(dx) > 3 || Math.abs(dy) > 3) state.moved = true;
+    container.scrollLeft = state.left - dx;
+    container.scrollTop = state.top - dy;
+  };
+
+  const onImagePointerUp = (event: React.PointerEvent<HTMLImageElement>) => {
+    const state = dragRef.current;
+    dragRef.current = null;
+    setDragging(false);
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+    if (state?.moved) return;
+    if (zoomed) {
+      setZoomed(false);
+      return;
+    }
+    const rect = event.currentTarget.getBoundingClientRect();
+    anchorRef.current = {
+      x: (event.clientX - rect.left) / rect.width,
+      y: (event.clientY - rect.top) / rect.height,
+    };
+    setZoomed(true);
+  };
 
   return (
     <>
@@ -213,7 +279,10 @@ export function PlatformGallery() {
                 >
                   <button
                     type="button"
-                    onClick={() => setLightbox({ category: categoryIndex, index: shotIndex })}
+                    onClick={() => {
+                      setZoomed(false);
+                      setLightbox({ category: categoryIndex, index: shotIndex });
+                    }}
                     aria-label={`Open ${shot.title} full screen`}
                     className="relative block w-full cursor-pointer overflow-hidden border-b border-border bg-ink/[0.03]"
                   >
@@ -241,37 +310,56 @@ export function PlatformGallery() {
         </section>
       ))}
 
-      {active && lightbox ? (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={active.title}
-          className="fixed inset-0 z-[100] flex flex-col bg-ink/90 p-4 backdrop-blur-sm sm:p-8"
-          onClick={() => {
-            setZoomed(false);
-            close();
-          }}
-        >
-          <div className="relative m-auto w-full max-w-[110rem] space-y-4" onClick={(event) => event.stopPropagation()}>
+      <Dialog
+        open={Boolean(active)}
+        onOpenChange={(open) => {
+          if (!open) close();
+        }}
+      >
+        {active && lightbox ? (
+          <DialogContent className="max-h-[92vh] w-[96vw] max-w-[110rem] border-white/10 bg-ink/95 p-4 text-ink-foreground sm:rounded-xl sm:p-6 [&>button]:text-ink-foreground [&>button]:opacity-80">
+            <DialogHeader className="sr-only">
+              <DialogTitle>{active.title}</DialogTitle>
+              <DialogDescription>{active.description}</DialogDescription>
+            </DialogHeader>
+
             <div
-              className={`overflow-auto rounded-xl border border-white/10 shadow-2xl ${zoomed ? "max-h-[78vh]" : ""}`}
+              ref={scrollRef}
+              className={`scrollbar-themed overflow-auto rounded-lg border border-white/10 bg-ink ${
+                zoomed ? "max-h-[74vh]" : ""
+              }`}
             >
               <img
                 key={active.src}
                 src={fullSrc(active.src)}
                 alt={active.alt}
-                onClick={() => setZoomed((value) => !value)}
+                draggable={false}
+                onPointerDown={onImagePointerDown}
+                onPointerMove={onImagePointerMove}
+                onPointerUp={onImagePointerUp}
                 className={
-                  zoomed ? "w-auto max-w-none cursor-zoom-out" : "max-h-[78vh] w-full cursor-zoom-in object-contain"
+                  zoomed
+                    ? `w-auto max-w-none select-none ${dragging ? "cursor-grabbing" : "cursor-zoom-out"}`
+                    : "max-h-[74vh] w-full cursor-zoom-in select-none object-contain"
                 }
               />
             </div>
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <div className="min-w-0">
+
+            <div className="space-y-3 text-center">
+              <div>
                 <p className="font-display text-base font-semibold text-ink-foreground">{active.title}</p>
                 <p className="text-sm text-ink-foreground/70">{active.description}</p>
               </div>
-              <div className="flex items-center gap-2">
+              <a
+                href={fullSrc(active.src)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm text-ink-foreground/70 underline-offset-4 transition hover:text-ink-foreground hover:underline"
+              >
+                <ExternalLink className="h-4 w-4" />
+                Open image in a new tab
+              </a>
+              <div className="flex items-center justify-center gap-2">
                 <button
                   type="button"
                   onClick={() => step(-1)}
@@ -293,17 +381,10 @@ export function PlatformGallery() {
                 </button>
               </div>
             </div>
-          </div>
-          <button
-            type="button"
-            onClick={close}
-            aria-label="Close"
-            className="absolute right-4 top-4 grid h-10 w-10 cursor-pointer place-items-center rounded-lg border border-white/15 text-ink-foreground transition hover:bg-white/10 sm:right-8 sm:top-8"
-          >
-            <X className="h-5 w-5" />
-          </button>
-        </div>
-      ) : null}
+          </DialogContent>
+        ) : null}
+      </Dialog>
     </>
   );
 }
+
