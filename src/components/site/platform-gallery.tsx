@@ -311,46 +311,57 @@ export function PlatformGallery() {
         </section>
       ))}
 
-      <Dialog
-        open={Boolean(active)}
-        onOpenChange={(open) => {
-          if (!open) close();
-        }}
-      >
+      <Dialog open={open} onOpenChange={(next) => (next ? setOpen(true) : close())}>
         {active && lightbox ? (
-          <DialogContent className="max-h-[99vh] w-[99vw] max-w-none gap-2 border-0 bg-transparent p-2 text-ink-foreground shadow-none sm:rounded-none sm:p-3 [&>button]:right-3 [&>button]:top-3 [&>button]:text-ink-foreground [&>button]:opacity-80">
+          <DialogContent className="max-h-[99vh] w-[99vw] max-w-none gap-3 border-0 bg-transparent p-2 text-ink-foreground shadow-none sm:rounded-none sm:p-3 [&>button]:right-3 [&>button]:top-3 [&>button]:text-ink-foreground [&>button]:opacity-80">
             <DialogHeader className="sr-only">
               <DialogTitle>{active.title}</DialogTitle>
               <DialogDescription>{active.description}</DialogDescription>
             </DialogHeader>
 
-            <div
-              ref={scrollRef}
-              className={`scrollbar-themed mx-auto overflow-auto ${
-                zoomed ? "max-h-[84vh]" : ""
-              }`}
-            >
-              <img
-                key={active.src}
-                src={fullSrc(active.src)}
-                alt={active.alt}
-                draggable={false}
-                onPointerDown={onImagePointerDown}
-                onPointerMove={onImagePointerMove}
-                onPointerUp={onImagePointerUp}
-                className={
-                  zoomed
-                    ? `w-auto max-w-none select-none ${dragging ? "cursor-grabbing" : "cursor-zoom-out"}`
-                    : "max-h-[84vh] w-full cursor-zoom-in select-none object-contain"
-                }
-              />
+            <div className="flex min-w-0 items-center gap-2 sm:gap-4">
+              <button
+                type="button"
+                onClick={() => step(-1)}
+                aria-label="Previous screenshot"
+                className="grid h-11 w-11 shrink-0 cursor-pointer place-items-center rounded-full border border-white/15 text-ink-foreground transition hover:bg-white/10"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+
+              <div
+                ref={scrollRef}
+                className={`scrollbar-themed min-w-0 flex-1 overflow-auto ${zoomed ? "max-h-[84vh]" : ""}`}
+              >
+                <img
+                  key={active.src}
+                  src={fullSrc(active.src)}
+                  alt={active.alt}
+                  draggable={false}
+                  onPointerDown={onImagePointerDown}
+                  onPointerMove={onImagePointerMove}
+                  onPointerUp={onImagePointerUp}
+                  className={
+                    zoomed
+                      ? `w-auto max-w-none select-none ${dragging ? "cursor-grabbing" : "cursor-zoom-out"}`
+                      : "mx-auto max-h-[84vh] w-full cursor-zoom-in select-none object-contain"
+                  }
+                />
+              </div>
+
+              <button
+                type="button"
+                onClick={() => step(1)}
+                aria-label="Next screenshot"
+                className="grid h-11 w-11 shrink-0 cursor-pointer place-items-center rounded-full border border-white/15 text-ink-foreground transition hover:bg-white/10"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
             </div>
 
-            <div className="space-y-2 text-center">
-              <div>
-                <p className="font-display text-base font-semibold text-ink-foreground">{active.title}</p>
-                <p className="text-sm text-ink-foreground/70">{active.description}</p>
-              </div>
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center">
+              <p className="font-display text-base font-semibold text-ink-foreground">{active.title}</p>
+              <p className="text-sm text-ink-foreground/70">{active.description}</p>
               <a
                 href={fullSrc(active.src)}
                 target="_blank"
@@ -360,27 +371,9 @@ export function PlatformGallery() {
                 <ExternalLink className="h-4 w-4" />
                 Open image in a new tab
               </a>
-              <div className="flex items-center justify-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => step(-1)}
-                  aria-label="Previous screenshot"
-                  className="grid h-10 w-10 cursor-pointer place-items-center rounded-lg border border-white/15 text-ink-foreground transition hover:bg-white/10"
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </button>
-                <span className="font-mono text-xs text-ink-foreground/60">
-                  {lightbox.index + 1} / {categories[lightbox.category]?.shots.length ?? 0}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => step(1)}
-                  aria-label="Next screenshot"
-                  className="grid h-10 w-10 cursor-pointer place-items-center rounded-lg border border-white/15 text-ink-foreground transition hover:bg-white/10"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </button>
-              </div>
+              <span className="font-mono text-xs text-ink-foreground/60">
+                {lightbox.index + 1} / {categories[lightbox.category]?.shots.length ?? 0}
+              </span>
             </div>
           </DialogContent>
         ) : null}
