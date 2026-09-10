@@ -157,16 +157,25 @@ const fullSrc = (src: string) => src.replace(/\.webp$/, "-full.webp");
 
 export function PlatformGallery() {
   const [lightbox, setLightbox] = useState<{ category: number; index: number } | null>(null);
+  const [open, setOpen] = useState(false);
   const [zoomed, setZoomed] = useState(false);
   const [dragging, setDragging] = useState(false);
 
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const anchorRef = useRef<{ x: number; y: number } | null>(null);
   const dragRef = useRef<{ x: number; y: number; left: number; top: number; moved: boolean } | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Keep the content mounted while the close animation plays.
   const close = useCallback(() => {
+    setOpen(false);
     setZoomed(false);
-    setLightbox(null);
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setLightbox(null), 220);
+  }, []);
+
+  useEffect(() => () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
   }, []);
 
   const step = useCallback((delta: number) => {
