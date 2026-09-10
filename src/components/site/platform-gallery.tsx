@@ -318,7 +318,7 @@ export function PlatformGallery() {
         }}
       >
         {active && lightbox ? (
-          <DialogContent className="max-h-[92vh] w-[96vw] max-w-[110rem] border-white/10 bg-ink/95 p-4 text-ink-foreground sm:rounded-xl sm:p-6 [&>button]:text-ink-foreground [&>button]:opacity-80">
+          <DialogContent className="max-h-[99vh] w-[99vw] max-w-none gap-2 border-0 bg-transparent p-2 text-ink-foreground shadow-none sm:rounded-none sm:p-3 [&>button]:right-3 [&>button]:top-3 [&>button]:text-ink-foreground [&>button]:opacity-80">
             <DialogHeader className="sr-only">
               <DialogTitle>{active.title}</DialogTitle>
               <DialogDescription>{active.description}</DialogDescription>
@@ -326,8 +326,8 @@ export function PlatformGallery() {
 
             <div
               ref={scrollRef}
-              className={`scrollbar-themed overflow-auto rounded-lg border border-white/10 bg-ink ${
-                zoomed ? "max-h-[74vh]" : ""
+              className={`scrollbar-themed mx-auto overflow-auto ${
+                zoomed ? "max-h-[84vh]" : ""
               }`}
             >
               <img
@@ -341,12 +341,12 @@ export function PlatformGallery() {
                 className={
                   zoomed
                     ? `w-auto max-w-none select-none ${dragging ? "cursor-grabbing" : "cursor-zoom-out"}`
-                    : "max-h-[74vh] w-full cursor-zoom-in select-none object-contain"
+                    : "max-h-[84vh] w-full cursor-zoom-in select-none object-contain"
                 }
               />
             </div>
 
-            <div className="space-y-3 text-center">
+            <div className="space-y-2 text-center">
               <div>
                 <p className="font-display text-base font-semibold text-ink-foreground">{active.title}</p>
                 <p className="text-sm text-ink-foreground/70">{active.description}</p>
