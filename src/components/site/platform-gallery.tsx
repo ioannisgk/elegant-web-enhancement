@@ -291,7 +291,9 @@ export function PlatformGallery() {
                     type="button"
                     onClick={() => {
                       setZoomed(false);
+                      if (closeTimer.current) clearTimeout(closeTimer.current);
                       setLightbox({ category: categoryIndex, index: shotIndex });
+                      setOpen(true);
                     }}
                     aria-label={`Open ${shot.title} full screen`}
                     className="relative block w-full cursor-pointer overflow-hidden border-b border-border bg-ink/[0.03]"
